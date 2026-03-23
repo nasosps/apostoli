@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Apostoli Agapis | Support Message</title>
+    <meta
+      name="description"
+      content="Support message for the Apostoli Agapis volunteer solidarity group."
+    />
+    <meta name="theme-color" content="#070707" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Noto+Sans:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #070707;
+        --surface: rgba(16, 16, 16, 0.95);
+        --surface-soft: rgba(255, 255, 255, 0.04);
+        --text: #fff8f1;
+        --muted: rgba(255, 248, 241, 0.72);
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #ff3948;
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.07), transparent 18%),
+          radial-gradient(circle at 88% 0%, rgba(255, 57, 72, 0.2), transparent 24%),
+          linear-gradient(180deg, #181818 0%, #0a0a0a 44%, #050505 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 20px));
+        margin: 0 auto;
+        padding: 12px 0 28px;
+      }
+
+      .page.is-rtl {
+        direction: rtl;
+      }
+
+      .lang-strip {
+        position: sticky;
+        top: 10px;
+        z-index: 5;
+        display: flex;
+        direction: ltr;
+        gap: 6px;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto 14px;
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(9, 9, 9, 0.8);
+        backdrop-filter: blur(18px);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .lang-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .lang-btn {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+      }
+
+      .lang-btn.is-active {
+        background: linear-gradient(180deg, var(--accent), #9f1018);
+        box-shadow: 0 14px 24px rgba(219, 22, 34, 0.28);
+      }
+
+      .flag-icon {
+        width: 18px;
+        height: 13px;
+        border-radius: 3px;
+        object-fit: cover;
+      }
+
+      .panel {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+          linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(22, 22, 22, 0.96));
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 22px;
+      }
+
+      .hero-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .hero-lang {
+        color: rgba(255, 248, 241, 0.82);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: rgba(255, 248, 241, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hero-title,
+      .section-title {
+        margin: 0;
+        font-family: "League Spartan", sans-serif;
+        line-height: 0.96;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        font-size: clamp(2rem, 8vw, 3.8rem);
+      }
+
+      .hero-copy,
+      .section-copy,
+      .help-copy {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-copy {
+        margin: 14px 0 0;
+        max-width: 62ch;
+        font-size: 15px;
+      }
+
+      .hero-media {
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .hero-media img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+      }
+
+      .content {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .section-card {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: clamp(1.7rem, 5vw, 2.4rem);
+      }
+
+      .section-copy {
+        margin: 14px 0 0;
+        font-size: 14px;
+      }
+
+      .help-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .help-card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--surface-soft);
+      }
+
+      .help-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .help-copy {
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+
+      .section-card[data-script="arabic"] {
+        font-family: "Noto Sans Arabic", "Noto Sans", sans-serif;
+      }
+
+      .section-card[data-script="korean"] {
+        font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+      }
+
+      .section-card[data-script="chinese"] {
+        font-family: "Noto Sans SC", "Noto Sans", sans-serif;
+      }
+
+      @media (min-width: 760px) {
+        .hero-media {
+          grid-template-columns: 1.1fr 1fr 1fr;
+        }
+
+        .help-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="lang-strip" role="tablist" aria-label="Language selector">
+        <button class="lang-btn is-active" type="button" data-lang="en" aria-label="English" aria-pressed="true"><img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="el" aria-label="Ελληνικά" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/gr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="zh" aria-label="简体中文" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/cn.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="ko" aria-label="한국어" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/kr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="ar" aria-label="العربية" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/sa.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="es" aria-label="Español" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/es.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="fr" aria-label="Français" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/fr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="it" aria-label="Italiano" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/it.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="de" aria-label="Deutsch" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/de.png" alt="" aria-hidden="true" /></button>
+      </div>
+
+      <section class="panel hero">
+        <div class="hero-top">
+          <a class="back-link" id="back-link" href="index.html?lang=en">&larr; <span id="back-label">Home</span></a>
+          <div class="hero-lang" id="hero-language">English</div>
+        </div>
+        <p class="eyebrow" id="hero-eyebrow">Support text</p>
+        <h1 class="hero-title" id="hero-title">Why the mission asks for support</h1>
+        <p class="hero-copy" id="hero-copy">
+          This page turns the support letter into site content, so the message can be read clearly in every language.
+        </p>
+        <div class="hero-media">
+          <img src="assets/pdf_images/page01_02_X8.jpg" alt="Apostoli Agapis support material" />
+          <img src="assets/pdf_images/page01_04_X10.jpg" alt="Hands joined together in solidarity" />
+          <img src="assets/pdf_images/page02_03_X29.jpg" alt="Prepared support packages" />
+        </div>
+      </section>
+
+      <div class="content">
+        <section class="panel section-card" id="letter-card">
+          <p class="eyebrow" id="letter-eyebrow">Support message</p>
+          <h2 class="section-title" id="letter-title">A message to supporters</h2>
+          <p class="section-copy" id="letter-copy-1">
+            Apostoli Agapis is a purely volunteer group. It receives no state subsidy and depends entirely on people and organizations who believe in solidarity.
+          </p>
+          <p class="section-copy" id="letter-copy-2">
+            The goal of every appeal is simple: to keep standing beside families facing hardship with practical help, respect and care.
+          </p>
+          <p class="section-copy" id="letter-copy-3">
+            Seasonal campaigns and everyday actions help bring food, warmth and dignity to people who are struggling.
+          </p>
+        </section>
+
+        <section class="panel section-card" id="help-card">
+          <p class="eyebrow" id="help-eyebrow">Ways to help</p>
+          <h2 class="section-title" id="help-title">How support can be offered</h2>
+          <div class="help-grid">
+            <article class="help-card">
+              <h3 class="help-title" id="help-item-title-1">Financial help</h3>
+              <p class="help-copy" id="help-item-copy-1">Direct financial support helps cover the most urgent needs of families and local actions.</p>
+            </article>
+            <article class="help-card">
+              <h3 class="help-title" id="help-item-title-2">Food and essentials</h3>
+              <p class="help-copy" id="help-item-copy-2">Food, clothing and first-need items are turned into direct practical support for people in need.</p>
+            </article>
+            <article class="help-card">
+              <h3 class="help-title" id="help-item-title-3">Seasonal campaigns</h3>
+              <p class="help-copy" id="help-item-copy-3">Holiday and special campaigns help families celebrate with more dignity, warmth and security.</p>
+            </article>
+            <article class="help-card">
+              <h3 class="help-title" id="help-item-title-4">Partnerships</h3>
+              <p class="help-copy" id="help-item-copy-4">Businesses, schools and local organizations can become partners in practical solidarity.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel section-card" id="recognition-card">
+          <p class="eyebrow" id="recognition-eyebrow">Recognition</p>
+          <h2 class="section-title" id="recognition-title">Visibility for supporters</h2>
+          <p class="section-copy" id="recognition-copy-1">
+            Businesses and organizations that stand with the group may be acknowledged through the official social channels and local media appearances connected to the mission.
+          </p>
+          <p class="section-copy" id="recognition-copy-2">
+            In this way, the social contribution of every supporter can become visible and encourage more people to participate.
+          </p>
+        </section>
+
+        <section class="panel section-card" id="closing-card">
+          <p class="eyebrow" id="closing-eyebrow">Every contribution matters</p>
+          <h2 class="section-title" id="closing-title">A mission sustained by people</h2>
+          <p class="section-copy" id="closing-copy">
+            Small or large, every contribution helps Apostoli Agapis continue its work with warmth, dignity and consistency.
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const translations = {
+        en: {
+          label: "English",
+          htmlLang: "en",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Support Message",
+          backLabel: "Home",
+          heroEyebrow: "Support message",
+          heroTitle: "Why the mission asks for support",
+          heroCopy:
+            "This page turns the support letter into site content, so its message can be read clearly in every language.",
+          letterEyebrow: "Support message",
+          letterTitle: "A message to supporters",
+          letterCopy1:
+            "Apostoli Agapis is a purely volunteer group. It receives no state subsidy and depends entirely on people and organizations who believe in solidarity.",
+          letterCopy2:
+            "The goal of every appeal is simple: to keep standing beside families facing hardship with practical help, respect and care.",
+          letterCopy3:
+            "Seasonal campaigns and everyday actions help bring food, warmth and dignity to people who are struggling.",
+          helpEyebrow: "Ways to help",
+          helpTitle: "How support can be offered",
+          helpItems: [
+            {
+              title: "Financial help",
+              copy: "Direct financial support helps cover the most urgent needs of families and local actions.",
+            },
+            {
+              title: "Food and essentials",
+              copy: "Food, clothing and first-need items are turned into direct practical support for people in need.",
+            },
+            {
+              title: "Seasonal campaigns",
+              copy: "Holiday and special campaigns help families celebrate with more dignity, warmth and security.",
+            },
+            {
+              title: "Partnerships",
+              copy: "Businesses, schools and local organizations can become partners in practical solidarity.",
+            },
+          ],
+          recognitionEyebrow: "Recognition",
+          recognitionTitle: "Visibility for supporters",
+          recognitionCopy1:
+            "Businesses and organizations that stand with the group may be acknowledged through the official social channels and local media appearances connected to the mission.",
+          recognitionCopy2:
+            "In this way, the social contribution of every supporter can become visible and encourage more people to participate.",
+          closingEyebrow: "Every contribution matters",
+          closingTitle: "A mission sustained by people",
+          closingCopy:
+            "Small or large, every contribution helps Apostoli Agapis continue its work with warmth, dignity and consistency.",
+        },
+        el: {
+          label: "Ελληνικά",
+          htmlLang: "el",
+          dir: "ltr",
+          script: "greek",
+          title: "Αποστολή Αγάπης | Κείμενο Στήριξης",
+          backLabel: "Αρχική",
+          heroEyebrow: "Κείμενο στήριξης",
+          heroTitle: "Γιατί η αποστολή ζητά στήριξη",
+          heroCopy:
+            "Η σελίδα αυτή μεταφέρει το κείμενο στήριξης μέσα στο site, ώστε το μήνυμα να διαβάζεται καθαρά σε όλες τις γλώσσες.",
+          letterEyebrow: "Κείμενο στήριξης",
+          letterTitle: "Ένα μήνυμα προς όσους στηρίζουν",
+          letterCopy1:
+            "Η Αποστολή Αγάπης είναι μια αμιγώς εθελοντική ομάδα. Δεν λαμβάνει κρατική επιχορήγηση και στηρίζεται αποκλειστικά σε ανθρώπους και φορείς που πιστεύουν στην αλληλεγγύη.",
+          letterCopy2:
+            "Ο στόχος κάθε έκκλησης είναι απλός: να συνεχίσουμε να στεκόμαστε δίπλα σε οικογένειες που δοκιμάζονται, με πρακτική βοήθεια, σεβασμό και φροντίδα.",
+          letterCopy3:
+            "Οι εποχικές δράσεις και η καθημερινή παρουσία της ομάδας φέρνουν τροφή, ζεστασιά και αξιοπρέπεια σε ανθρώπους που δυσκολεύονται.",
+          helpEyebrow: "Τρόποι στήριξης",
+          helpTitle: "Πώς μπορεί να δοθεί η στήριξη",
+          helpItems: [
+            {
+              title: "Οικονομική ενίσχυση",
+              copy: "Η άμεση οικονομική βοήθεια καλύπτει τις πιο επείγουσες ανάγκες οικογενειών και τοπικών δράσεων.",
+            },
+            {
+              title: "Τρόφιμα και βασικά είδη",
+              copy: "Τρόφιμα, ρούχα και είδη πρώτης ανάγκης μετατρέπονται σε ουσιαστική πρακτική βοήθεια για ανθρώπους που έχουν ανάγκη.",
+            },
+            {
+              title: "Εποχικές δράσεις",
+              copy: "Οι γιορτινές και ειδικές δράσεις βοηθούν οικογένειες να ζήσουν με περισσότερη αξιοπρέπεια, ζεστασιά και ασφάλεια.",
+            },
+            {
+              title: "Συνεργασίες",
+              copy: "Επιχειρήσεις, σχολεία και τοπικοί φορείς μπορούν να γίνουν συνεργάτες στην έμπρακτη αλληλεγγύη.",
+            },
+          ],
+          recognitionEyebrow: "Αναγνώριση",
+          recognitionTitle: "Προβολή για όσους στηρίζουν",
+          recognitionCopy1:
+            "Επιχειρήσεις και φορείς που στέκονται δίπλα στην ομάδα μπορούν να προβάλλονται μέσα από τα επίσημα κοινωνικά δίκτυα και τις δημόσιες εμφανίσεις που συνδέονται με την αποστολή.",
+          recognitionCopy2:
+            "Με αυτόν τον τρόπο, η κοινωνική προσφορά κάθε υποστηρικτή γίνεται ορατή και μπορεί να εμπνεύσει ακόμη περισσότερους ανθρώπους να συμμετάσχουν.",
+          closingEyebrow: "Κάθε προσφορά μετράει",
+          closingTitle: "Μια αποστολή που στηρίζεται στους ανθρώπους",
+          closingCopy:
+            "Μικρή ή μεγάλη, κάθε προσφορά βοηθά την Αποστολή Αγάπης να συνεχίσει το έργο της με ζεστασιά, αξιοπρέπεια και συνέπεια.",
+        },
+        zh: {
+          label: "简体中文",
+          htmlLang: "zh-Hans",
+          dir: "ltr",
+          script: "chinese",
+          title: "Apostoli Agapis | 支持说明",
+          backLabel: "首页",
+          heroEyebrow: "支持说明",
+          heroTitle: "为什么这项使命需要支持",
+          heroCopy:
+            "本页将支持信转为网站内容，让它的核心信息可以被所有语言的访客清楚阅读。",
+          letterEyebrow: "支持说明",
+          letterTitle: "写给支持者的一封信",
+          letterCopy1:
+            "Apostoli Agapis 是一个完全由志愿者组成的团队。它不接受国家补贴，完全依靠相信团结力量的人们和机构。",
+          letterCopy2:
+            "每一次呼吁的目标都很简单：继续以实际帮助、尊重与关怀陪伴处于困境中的家庭。",
+          letterCopy3:
+            "季节性行动和日常工作，为正在承受困难的人们带去食物、温暖与尊严。",
+          helpEyebrow: "支持方式",
+          helpTitle: "可以怎样提供支持",
+          helpItems: [
+            {
+              title: "经济支持",
+              copy: "直接的经济支持可以帮助覆盖家庭和本地行动最紧急的需要。",
+            },
+            {
+              title: "食物和必需品",
+              copy: "食物、衣物和基本生活用品会转化为对有需要人群的实际帮助。",
+            },
+            {
+              title: "季节性行动",
+              copy: "节庆和特别行动帮助家庭以更多尊严、温暖和安全感度过特殊时刻。",
+            },
+            {
+              title: "合作伙伴关系",
+              copy: "企业、学校和地方机构都可以成为这份实际团结行动的合作伙伴。",
+            },
+          ],
+          recognitionEyebrow: "致谢与展示",
+          recognitionTitle: "对支持者的公开呈现",
+          recognitionCopy1:
+            "支持这项使命的企业和机构，可以通过官方社交渠道及与团队相关的公开露出被介绍给更多人。",
+          recognitionCopy2:
+            "这样，每一份社会贡献都能被看见，也能鼓励更多人参与进来。",
+          closingEyebrow: "每一份支持都重要",
+          closingTitle: "一项由人们共同支撑的使命",
+          closingCopy:
+            "无论大小，每一份支持都帮助 Apostoli Agapis 继续以温暖、尊严和持续性开展工作。",
+        },
+        ko: {
+          label: "한국어",
+          htmlLang: "ko",
+          dir: "ltr",
+          script: "korean",
+          title: "Apostoli Agapis | 후원 안내",
+          backLabel: "홈",
+          heroEyebrow: "후원 안내",
+          heroTitle: "왜 이 사명에는 후원이 필요한가",
+          heroCopy:
+            "이 페이지는 후원 서한을 사이트 콘텐츠로 바꾸어, 그 메시지를 모든 언어에서 분명하게 읽을 수 있게 합니다.",
+          letterEyebrow: "후원 안내",
+          letterTitle: "후원자들에게 전하는 메시지",
+          letterCopy1:
+            "Apostoli Agapis는 순수 자원봉사 단체입니다. 국가 보조금을 받지 않으며, 연대의 힘을 믿는 사람들과 기관의 도움에 전적으로 의존합니다.",
+          letterCopy2:
+            "모든 호소의 목표는 단순합니다. 어려움을 겪는 가정 곁을 실제적인 도움과 존중, 돌봄으로 계속 지키는 것입니다.",
+          letterCopy3:
+            "계절 캠페인과 일상의 활동은 힘든 시간을 보내는 사람들에게 음식과 따뜻함, 존엄을 전합니다.",
+          helpEyebrow: "후원 방법",
+          helpTitle: "어떻게 도움을 줄 수 있나요",
+          helpItems: [
+            {
+              title: "재정 후원",
+              copy: "직접적인 재정 지원은 가정과 지역 활동의 가장 시급한 필요를 돕습니다.",
+            },
+            {
+              title: "식품과 필수품",
+              copy: "식품, 의류, 생필품은 도움이 필요한 사람들을 위한 실질적인 지원이 됩니다.",
+            },
+            {
+              title: "계절 캠페인",
+              copy: "명절과 특별 캠페인은 가정이 더 큰 존엄과 따뜻함, 안정감 속에서 시간을 보낼 수 있게 돕습니다.",
+            },
+            {
+              title: "협력",
+              copy: "기업, 학교, 지역 기관은 실제적인 연대의 협력자가 될 수 있습니다.",
+            },
+          ],
+          recognitionEyebrow: "감사와 소개",
+          recognitionTitle: "후원자에 대한 가시성",
+          recognitionCopy1:
+            "단체를 지원하는 기업과 기관은 공식 소셜 채널과 관련 공개 활동을 통해 소개될 수 있습니다.",
+          recognitionCopy2:
+            "이렇게 하면 각 후원의 사회적 가치가 더 잘 보이고, 더 많은 사람들의 참여를 이끌 수 있습니다.",
+          closingEyebrow: "모든 기여는 중요합니다",
+          closingTitle: "사람들이 함께 지탱하는 사명",
+          closingCopy:
+            "작든 크든 모든 기여는 Apostoli Agapis가 따뜻함과 존엄, 꾸준함으로 활동을 이어 가도록 돕습니다.",
+        },
+        ar: {
+          label: "العربية",
+          htmlLang: "ar",
+          dir: "rtl",
+          script: "arabic",
+          title: "Apostoli Agapis | رسالة الدعم",
+          backLabel: "الرئيسية",
+          heroEyebrow: "رسالة الدعم",
+          heroTitle: "لماذا تحتاج هذه الرسالة إلى دعم",
+          heroCopy:
+            "تحول هذه الصفحة خطاب الدعم إلى محتوى داخل الموقع حتى يمكن قراءة رسالته بوضوح في جميع اللغات.",
+          letterEyebrow: "رسالة الدعم",
+          letterTitle: "رسالة إلى الداعمين",
+          letterCopy1:
+            "Apostoli Agapis مجموعة تطوعية خالصة. لا تتلقى أي تمويل حكومي وتعتمد بالكامل على الأشخاص والجهات التي تؤمن بقوة التضامن.",
+          letterCopy2:
+            "الهدف من كل نداء بسيط: أن نستمر في الوقوف إلى جانب الأسر التي تمر بصعوبات من خلال مساعدة عملية واحترام ورعاية.",
+          letterCopy3:
+            "تساعد الحملات الموسمية والعمل اليومي على إيصال الطعام والدفء والكرامة إلى الأشخاص الذين يعانون.",
+          helpEyebrow: "طرق الدعم",
+          helpTitle: "كيف يمكن تقديم الدعم",
+          helpItems: [
+            {
+              title: "الدعم المالي",
+              copy: "يساعد الدعم المالي المباشر في تغطية الاحتياجات الأكثر إلحاحاً للأسر والأنشطة المحلية.",
+            },
+            {
+              title: "الغذاء والاحتياجات الأساسية",
+              copy: "تتحول المواد الغذائية والملابس والاحتياجات الأساسية إلى دعم عملي مباشر للأشخاص المحتاجين.",
+            },
+            {
+              title: "الحملات الموسمية",
+              copy: "تساعد الحملات في الأعياد والمناسبات الخاصة الأسر على العيش بكرامة ودفء وأمان أكبر.",
+            },
+            {
+              title: "الشراكات",
+              copy: "يمكن للشركات والمدارس والجهات المحلية أن تصبح شركاء في التضامن العملي.",
+            },
+          ],
+          recognitionEyebrow: "التقدير",
+          recognitionTitle: "إبراز الداعمين",
+          recognitionCopy1:
+            "يمكن الإشارة إلى الشركات والجهات التي تقف إلى جانب المجموعة عبر القنوات الاجتماعية الرسمية والظهور العام المرتبط بالرسالة.",
+          recognitionCopy2:
+            "وبهذه الطريقة تصبح المساهمة الاجتماعية لكل داعم مرئية ويمكن أن تشجع مزيداً من الناس على المشاركة.",
+          closingEyebrow: "كل مساهمة مهمة",
+          closingTitle: "رسالة تحملها ثقة الناس",
+          closingCopy:
+            "صغيرة كانت أم كبيرة، كل مساهمة تساعد Apostoli Agapis على مواصلة عملها بالدفء والكرامة والاستمرارية.",
+        },
+        es: {
+          label: "Español",
+          htmlLang: "es",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Texto de apoyo",
+          backLabel: "Inicio",
+          heroEyebrow: "Texto de apoyo",
+          heroTitle: "Por qué la misión pide apoyo",
+          heroCopy:
+            "Esta página convierte la carta de apoyo en contenido del sitio para que su mensaje pueda leerse con claridad en todos los idiomas.",
+          letterEyebrow: "Texto de apoyo",
+          letterTitle: "Un mensaje para quienes apoyan",
+          letterCopy1:
+            "Apostoli Agapis es un grupo puramente voluntario. No recibe subvención estatal y depende por completo de personas y entidades que creen en la solidaridad.",
+          letterCopy2:
+            "El objetivo de cada llamamiento es sencillo: seguir al lado de las familias que atraviesan dificultades con ayuda práctica, respeto y cuidado.",
+          letterCopy3:
+            "Las campañas estacionales y la acción diaria ayudan a llevar comida, calor y dignidad a las personas que lo están pasando mal.",
+          helpEyebrow: "Formas de ayudar",
+          helpTitle: "Cómo puede ofrecerse el apoyo",
+          helpItems: [
+            {
+              title: "Ayuda económica",
+              copy: "La ayuda económica directa cubre las necesidades más urgentes de las familias y de las acciones locales.",
+            },
+            {
+              title: "Alimentos y artículos básicos",
+              copy: "Los alimentos, la ropa y los productos de primera necesidad se transforman en ayuda práctica directa para quienes la necesitan.",
+            },
+            {
+              title: "Campañas estacionales",
+              copy: "Las campañas festivas y especiales ayudan a las familias a vivir con más dignidad, calor y seguridad.",
+            },
+            {
+              title: "Colaboraciones",
+              copy: "Empresas, escuelas y organizaciones locales pueden convertirse en aliadas de una solidaridad práctica.",
+            },
+          ],
+          recognitionEyebrow: "Reconocimiento",
+          recognitionTitle: "Visibilidad para quienes apoyan",
+          recognitionCopy1:
+            "Las empresas y entidades que acompañan al grupo pueden ser reconocidas a través de los canales sociales oficiales y de las apariciones públicas relacionadas con la misión.",
+          recognitionCopy2:
+            "Así, la contribución social de cada colaborador se hace visible y puede animar a más personas a participar.",
+          closingEyebrow: "Cada aportación cuenta",
+          closingTitle: "Una misión sostenida por las personas",
+          closingCopy:
+            "Grande o pequeña, cada aportación ayuda a Apostoli Agapis a continuar su labor con calidez, dignidad y constancia.",
+        },
+        fr: {
+          label: "Français",
+          htmlLang: "fr",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Texte de soutien",
+          backLabel: "Accueil",
+          heroEyebrow: "Texte de soutien",
+          heroTitle: "Pourquoi la mission demande du soutien",
+          heroCopy:
+            "Cette page transforme la lettre de soutien en contenu du site afin que son message puisse être lu clairement dans toutes les langues.",
+          letterEyebrow: "Texte de soutien",
+          letterTitle: "Un message aux soutiens",
+          letterCopy1:
+            "Apostoli Agapis est un groupe entièrement bénévole. Il ne reçoit aucune subvention publique et dépend entièrement de personnes et d'organismes qui croient en la solidarité.",
+          letterCopy2:
+            "Le but de chaque appel est simple : continuer à rester aux côtés des familles en difficulté avec une aide concrète, du respect et de l'attention.",
+          letterCopy3:
+            "Les campagnes saisonnières et l'action quotidienne apportent nourriture, chaleur et dignité aux personnes qui traversent des moments difficiles.",
+          helpEyebrow: "Façons d'aider",
+          helpTitle: "Comment le soutien peut être apporté",
+          helpItems: [
+            {
+              title: "Aide financière",
+              copy: "L'aide financière directe permet de couvrir les besoins les plus urgents des familles et des actions locales.",
+            },
+            {
+              title: "Alimentation et produits essentiels",
+              copy: "Les denrées, les vêtements et les produits de première nécessité deviennent un soutien concret pour les personnes qui en ont besoin.",
+            },
+            {
+              title: "Campagnes saisonnières",
+              copy: "Les campagnes festives et spéciales aident les familles à vivre avec plus de dignité, de chaleur et de sécurité.",
+            },
+            {
+              title: "Partenariats",
+              copy: "Les entreprises, écoles et structures locales peuvent devenir partenaires d'une solidarité concrète.",
+            },
+          ],
+          recognitionEyebrow: "Reconnaissance",
+          recognitionTitle: "Visibilité des soutiens",
+          recognitionCopy1:
+            "Les entreprises et organismes qui accompagnent le groupe peuvent être mis en avant via les réseaux sociaux officiels et les prises de parole publiques liées à la mission.",
+          recognitionCopy2:
+            "Ainsi, la contribution sociale de chaque soutien devient visible et peut encourager davantage de personnes à participer.",
+          closingEyebrow: "Chaque contribution compte",
+          closingTitle: "Une mission portée par les personnes",
+          closingCopy:
+            "Petite ou grande, chaque contribution aide Apostoli Agapis à poursuivre son travail avec chaleur, dignité et constance.",
+        },
+        it: {
+          label: "Italiano",
+          htmlLang: "it",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Testo di sostegno",
+          backLabel: "Home",
+          heroEyebrow: "Testo di sostegno",
+          heroTitle: "Perché la missione chiede sostegno",
+          heroCopy:
+            "Questa pagina trasforma la lettera di sostegno in contenuto del sito, così che il suo messaggio possa essere letto chiaramente in tutte le lingue.",
+          letterEyebrow: "Testo di sostegno",
+          letterTitle: "Un messaggio per chi sostiene",
+          letterCopy1:
+            "Apostoli Agapis è un gruppo interamente volontario. Non riceve sovvenzioni pubbliche e dipende completamente da persone ed enti che credono nella solidarietà.",
+          letterCopy2:
+            "L'obiettivo di ogni appello è semplice: continuare a stare accanto alle famiglie in difficoltà con aiuto concreto, rispetto e cura.",
+          letterCopy3:
+            "Le campagne stagionali e l'azione quotidiana portano cibo, calore e dignità alle persone che stanno attraversando momenti difficili.",
+          helpEyebrow: "Modi per aiutare",
+          helpTitle: "Come può essere offerto il sostegno",
+          helpItems: [
+            {
+              title: "Aiuto economico",
+              copy: "Il sostegno economico diretto aiuta a coprire i bisogni più urgenti delle famiglie e delle azioni locali.",
+            },
+            {
+              title: "Cibo e beni essenziali",
+              copy: "Alimenti, abiti e beni di prima necessità diventano un aiuto pratico diretto per chi ne ha bisogno.",
+            },
+            {
+              title: "Campagne stagionali",
+              copy: "Le campagne festive e speciali aiutano le famiglie a vivere con più dignità, calore e sicurezza.",
+            },
+            {
+              title: "Collaborazioni",
+              copy: "Imprese, scuole e organizzazioni locali possono diventare partner di una solidarietà concreta.",
+            },
+          ],
+          recognitionEyebrow: "Riconoscimento",
+          recognitionTitle: "Visibilità per chi sostiene",
+          recognitionCopy1:
+            "Le imprese e gli enti che sostengono il gruppo possono essere valorizzati attraverso i canali social ufficiali e le apparizioni pubbliche collegate alla missione.",
+          recognitionCopy2:
+            "In questo modo, il contributo sociale di ogni sostenitore diventa visibile e può incoraggiare ancora più persone a partecipare.",
+          closingEyebrow: "Ogni contributo conta",
+          closingTitle: "Una missione sostenuta dalle persone",
+          closingCopy:
+            "Piccolo o grande, ogni contributo aiuta Apostoli Agapis a continuare il suo lavoro con calore, dignità e continuità.",
+        },
+        de: {
+          label: "Deutsch",
+          htmlLang: "de",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Unterstützungstext",
+          backLabel: "Start",
+          heroEyebrow: "Unterstützungstext",
+          heroTitle: "Warum die Mission Unterstützung braucht",
+          heroCopy:
+            "Diese Seite macht aus dem Unterstützungsschreiben Website-Inhalt, damit seine Botschaft in allen Sprachen klar lesbar ist.",
+          letterEyebrow: "Unterstützungstext",
+          letterTitle: "Eine Botschaft an Unterstützende",
+          letterCopy1:
+            "Apostoli Agapis ist eine rein ehrenamtliche Gruppe. Sie erhält keine staatliche Förderung und ist vollständig auf Menschen und Organisationen angewiesen, die an Solidarität glauben.",
+          letterCopy2:
+            "Das Ziel jedes Aufrufs ist einfach: Familien in schwierigen Lebenslagen weiterhin mit praktischer Hilfe, Respekt und Fürsorge zur Seite zu stehen.",
+          letterCopy3:
+            "Saisonale Aktionen und die tägliche Arbeit bringen Nahrung, Wärme und Würde zu Menschen, die zu kämpfen haben.",
+          helpEyebrow: "So kann man helfen",
+          helpTitle: "Wie Unterstützung aussehen kann",
+          helpItems: [
+            {
+              title: "Finanzielle Hilfe",
+              copy: "Direkte finanzielle Hilfe deckt die dringendsten Bedürfnisse von Familien und lokalen Einsätzen.",
+            },
+            {
+              title: "Lebensmittel und Grundbedarf",
+              copy: "Lebensmittel, Kleidung und Dinge des täglichen Bedarfs werden zu direkter praktischer Hilfe für Menschen in Not.",
+            },
+            {
+              title: "Saisonale Aktionen",
+              copy: "Festliche und besondere Aktionen helfen Familien, mit mehr Würde, Wärme und Sicherheit zu leben.",
+            },
+            {
+              title: "Partnerschaften",
+              copy: "Unternehmen, Schulen und lokale Organisationen können Partner gelebter Solidarität werden.",
+            },
+          ],
+          recognitionEyebrow: "Anerkennung",
+          recognitionTitle: "Sichtbarkeit für Unterstützende",
+          recognitionCopy1:
+            "Unternehmen und Organisationen, die an der Seite der Gruppe stehen, können über die offiziellen sozialen Kanäle und öffentliche Auftritte im Zusammenhang mit der Mission sichtbar gemacht werden.",
+          recognitionCopy2:
+            "So wird der gesellschaftliche Beitrag jeder Unterstützung sichtbar und kann mehr Menschen zur Teilnahme ermutigen.",
+          closingEyebrow: "Jeder Beitrag zählt",
+          closingTitle: "Eine Mission, getragen von Menschen",
+          closingCopy:
+            "Ob klein oder groß, jeder Beitrag hilft Apostoli Agapis, seine Arbeit mit Wärme, Würde und Beständigkeit fortzusetzen.",
+        },
+      };
+
+      const page = document.querySelector(".page");
+      const buttons = Array.from(document.querySelectorAll(".lang-btn"));
+      const backLink = document.getElementById("back-link");
+      const backLabel = document.getElementById("back-label");
+      const heroLanguage = document.getElementById("hero-language");
+      const heroEyebrow = document.getElementById("hero-eyebrow");
+      const heroTitle = document.getElementById("hero-title");
+      const heroCopy = document.getElementById("hero-copy");
+      const letterCard = document.getElementById("letter-card");
+      const helpCard = document.getElementById("help-card");
+      const recognitionCard = document.getElementById("recognition-card");
+      const closingCard = document.getElementById("closing-card");
+      const letterEyebrow = document.getElementById("letter-eyebrow");
+      const letterTitle = document.getElementById("letter-title");
+      const letterCopy1 = document.getElementById("letter-copy-1");
+      const letterCopy2 = document.getElementById("letter-copy-2");
+      const letterCopy3 = document.getElementById("letter-copy-3");
+      const helpEyebrow = document.getElementById("help-eyebrow");
+      const helpTitle = document.getElementById("help-title");
+      const helpItemTitleElements = Array.from({ length: 4 }, (_, index) =>
+        document.getElementById(`help-item-title-${index + 1}`)
+      );
+      const helpItemCopyElements = Array.from({ length: 4 }, (_, index) =>
+        document.getElementById(`help-item-copy-${index + 1}`)
+      );
+      const recognitionEyebrow = document.getElementById("recognition-eyebrow");
+      const recognitionTitle = document.getElementById("recognition-title");
+      const recognitionCopy1 = document.getElementById("recognition-copy-1");
+      const recognitionCopy2 = document.getElementById("recognition-copy-2");
+      const closingEyebrow = document.getElementById("closing-eyebrow");
+      const closingTitle = document.getElementById("closing-title");
+      const closingCopy = document.getElementById("closing-copy");
+
+      function syncUrl(code) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", code);
+        window.history.replaceState({}, "", url);
+      }
+
+      function applyLanguage(code, updateUrl = true) {
+        const translation = translations[code] || translations.en;
+
+        document.documentElement.lang = translation.htmlLang;
+        document.documentElement.dir = translation.dir;
+        document.title = translation.title;
+        page.classList.toggle("is-rtl", translation.dir === "rtl");
+        heroLanguage.textContent = translation.label;
+        backLabel.textContent = translation.backLabel;
+        backLink.href = `index.html?lang=${code}`;
+        heroEyebrow.textContent = translation.heroEyebrow;
+        heroTitle.textContent = translation.heroTitle;
+        heroCopy.textContent = translation.heroCopy;
+        letterEyebrow.textContent = translation.letterEyebrow;
+        letterTitle.textContent = translation.letterTitle;
+        letterCopy1.textContent = translation.letterCopy1;
+        letterCopy2.textContent = translation.letterCopy2;
+        letterCopy3.textContent = translation.letterCopy3;
+        helpEyebrow.textContent = translation.helpEyebrow;
+        helpTitle.textContent = translation.helpTitle;
+        translation.helpItems.forEach((item, index) => {
+          helpItemTitleElements[index].textContent = item.title;
+          helpItemCopyElements[index].textContent = item.copy;
+        });
+        recognitionEyebrow.textContent = translation.recognitionEyebrow;
+        recognitionTitle.textContent = translation.recognitionTitle;
+        recognitionCopy1.textContent = translation.recognitionCopy1;
+        recognitionCopy2.textContent = translation.recognitionCopy2;
+        closingEyebrow.textContent = translation.closingEyebrow;
+        closingTitle.textContent = translation.closingTitle;
+        closingCopy.textContent = translation.closingCopy;
+
+        [letterCard, helpCard, recognitionCard, closingCard].forEach((card) => {
+          card.dataset.script = translation.script;
+        });
+
+        buttons.forEach((button) => {
+          const isActive = button.dataset.lang === code;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        if (updateUrl) {
+          syncUrl(code);
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang, true));
+      });
+
+      const initialLanguage =
+        new URL(window.location.href).searchParams.get("lang") || "en";
+
+      applyLanguage(initialLanguage, false);
+    </script>
+  </body>
+</html>

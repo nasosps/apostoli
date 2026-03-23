@@ -121,8 +121,11 @@
         top: 10px;
         z-index: 5;
         display: flex;
+        direction: ltr;
         gap: 6px;
-        width: min(404px, 100%);
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto;
         padding: 7px;
         border: 1px solid var(--line);
         border-radius: 999px;
@@ -384,18 +387,56 @@
       .visual-frame {
         position: relative;
         z-index: 1;
+        display: grid;
+        place-items: center;
         overflow: hidden;
         border-radius: 22px;
-        background: #ffffff;
+        padding: clamp(18px, 4vw, 28px);
+        background:
+          radial-gradient(circle at 50% 28%, rgba(255, 255, 255, 0.96), rgba(246, 241, 235, 0.98)),
+          linear-gradient(180deg, #ffffff 0%, #f5eee5 100%);
         box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
-        aspect-ratio: 11 / 9;
+        aspect-ratio: 1 / 1;
+      }
+
+      .visual-mark {
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+        width: 100%;
       }
 
       .visual-frame img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center top;
+        width: min(100%, 230px);
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        filter: drop-shadow(0 20px 34px rgba(0, 0, 0, 0.12));
+      }
+
+      .visual-label {
+        max-width: min(100%, 270px);
+        padding: 4px 8px 0;
+        color: #2f2b27;
+        font-family: "Gabriola", "Palatino Linotype", "Times New Roman", serif;
+        font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+        font-weight: 700;
+        font-style: italic;
+        letter-spacing: 0.01em;
+        line-height: 1.02;
+        text-align: center;
+        text-wrap: balance;
+        text-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
+      }
+
+      .visual-label[data-script="arabic"],
+      .visual-label[data-script="korean"],
+      .visual-label[data-script="chinese"] {
+        font-family: "Noto Sans", sans-serif;
+        font-style: normal;
+        font-size: clamp(0.92rem, 2.6vw, 1.18rem);
+        font-weight: 700;
+        line-height: 1.2;
       }
 
       .message-panel {
@@ -575,6 +616,184 @@
         flex: 0 0 auto;
       }
 
+      .sections-grid {
+        margin-top: 14px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .section-card {
+        position: relative;
+        overflow: hidden;
+        padding: 20px;
+        border-radius: 28px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.02)),
+          linear-gradient(135deg, rgba(11, 11, 11, 0.95), rgba(23, 23, 23, 0.94));
+        box-shadow: 0 20px 42px rgba(0, 0, 0, 0.24);
+      }
+
+      .section-card::before {
+        content: "";
+        position: absolute;
+        inset: auto -60px -78px auto;
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(219, 22, 34, 0.14), transparent 72%);
+        pointer-events: none;
+      }
+
+      .section-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-eyebrow {
+        margin: 0 0 8px;
+        color: rgba(255, 248, 241, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .section-title {
+        margin: 0;
+        font-family: "League Spartan", sans-serif;
+        font-size: clamp(1.6rem, 5vw, 2.3rem);
+        line-height: 0.96;
+        text-transform: uppercase;
+      }
+
+      .section-title + .section-copy,
+      .section-copy + .section-copy,
+      .section-copy + .stats-grid,
+      .section-copy + .support-list,
+      .section-copy + .docs-grid {
+        margin-top: 14px;
+      }
+
+      .section-copy {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.72;
+        text-wrap: pretty;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stat-card {
+        min-width: 0;
+        padding: 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.04);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .stat-card strong {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--accent-strong);
+        font-family: "League Spartan", sans-serif;
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        line-height: 0.9;
+      }
+
+      .stat-card span {
+        display: block;
+        color: rgba(255, 248, 241, 0.82);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
+      .support-list {
+        display: grid;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .support-list li {
+        position: relative;
+        padding-left: 18px;
+        color: rgba(255, 248, 241, 0.88);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .support-list li::before {
+        content: "";
+        position: absolute;
+        top: 0.72em;
+        left: 0;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-strong);
+        box-shadow: 0 0 0 4px rgba(219, 22, 34, 0.12);
+      }
+
+      .docs-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .doc-btn {
+        display: grid;
+        gap: 6px;
+        padding: 15px 16px;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.045);
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .doc-btn:hover,
+      .doc-btn:focus-visible {
+        transform: translateY(-2px);
+        background: rgba(219, 22, 34, 0.1);
+        border-color: rgba(219, 22, 34, 0.32);
+        outline: none;
+      }
+
+      .doc-btn strong {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .doc-btn small {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .page.is-rtl .section-card,
+      .page.is-rtl .doc-btn {
+        text-align: right;
+      }
+
+      .page.is-rtl .support-list li {
+        padding-right: 18px;
+        padding-left: 0;
+      }
+
+      .page.is-rtl .support-list li::before {
+        right: 0;
+        left: auto;
+      }
+
       .credit {
         margin: 4px 0 0;
         color: rgba(255, 255, 255, 0.45);
@@ -643,11 +862,19 @@
         .message-note {
           display: none;
         }
+
+        .section-card {
+          padding: 16px;
+          border-radius: 24px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+        }
       }
 
       @media (min-width: 840px) {
         .lang-strip {
-          width: min(920px, 100%);
           justify-content: center;
         }
 
@@ -671,10 +898,11 @@
         }
 
         .visual-frame {
-          aspect-ratio: auto;
+          aspect-ratio: 1 / 1;
         }
 
         .visual-frame img {
+          width: min(100%, 255px);
           height: auto;
           object-fit: contain;
         }
@@ -682,6 +910,22 @@
         .bottom-row {
           grid-template-columns: auto 1fr;
           align-items: center;
+        }
+
+        .sections-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .section-card.is-wide {
+          grid-column: span 2;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .docs-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -880,10 +1124,13 @@
             <div class="body-grid">
               <div class="visual-panel">
                 <div class="visual-frame">
-                  <img
-                    src="logo2.png"
-                    alt="Apostoli Agapis volunteer solidarity artwork"
-                  />
+                  <div class="visual-mark">
+                    <img
+                      src="logo.jpg"
+                      alt="Apostoli Agapis logo"
+                    />
+                    <div class="visual-label">Εθελοντική Ομάδα Αλληλεγγύης</div>
+                  </div>
                 </div>
               </div>
 
@@ -974,6 +1221,130 @@
           </div>
         </section>
 
+        <section class="sections-grid" aria-label="Mission details">
+          <article class="section-card">
+            <p class="section-eyebrow" id="about-eyebrow">Who we are</p>
+            <h2 class="section-title" id="about-title">
+              Volunteer solidarity, every single day
+            </h2>
+            <p class="section-copy" id="about-copy-1">
+              For many years, the group has stood beside families facing hardship
+              and has offered practical help with humanity and care.
+            </p>
+            <p class="section-copy" id="about-copy-2">
+              It receives no state subsidy and relies entirely on volunteers,
+              supporters and people who believe in solidarity.
+            </p>
+          </article>
+
+          <article class="section-card is-wide">
+            <p class="section-eyebrow" id="impact-eyebrow">In numbers</p>
+            <h2 class="section-title" id="impact-title">
+              Our impact over the last five years
+            </h2>
+            <p class="section-copy" id="impact-intro">
+              With the help of volunteers and supporters, Apostoli Agapis has
+              supported people across everyday life, emergencies and humanitarian
+              action.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <strong id="stat-1-value">250</strong>
+                <span id="stat-1-label"
+                  >families receive food and clothing support every month</span
+                >
+              </div>
+              <div class="stat-card">
+                <strong id="stat-2-value">500</strong>
+                <span id="stat-2-label"
+                  >children receive school supplies every year</span
+                >
+              </div>
+              <div class="stat-card">
+                <strong id="stat-3-value">120</strong>
+                <span id="stat-3-label"
+                  >people found work through the group's network</span
+                >
+              </div>
+              <div class="stat-card">
+                <strong id="stat-4-value">350</strong>
+                <span id="stat-4-label"
+                  >families were equipped with furniture and appliances</span
+                >
+              </div>
+              <div class="stat-card">
+                <strong id="stat-5-value">440</strong>
+                <span id="stat-5-label"
+                  >families received blankets, bedding and carpets</span
+                >
+              </div>
+              <div class="stat-card">
+                <strong id="stat-6-value">18</strong>
+                <span id="stat-6-label"
+                  >people with disabilities received wheelchairs</span
+                >
+              </div>
+            </div>
+          </article>
+
+          <article class="section-card">
+            <p class="section-eyebrow" id="support-eyebrow">How to support</p>
+            <h2 class="section-title" id="support-title">
+              Every contribution matters
+            </h2>
+            <p class="section-copy" id="support-copy">
+              You can support the work with financial help, food, basic
+              necessities or by partnering as a business, school or local
+              organization.
+            </p>
+            <ul class="support-list">
+              <li id="support-item-1">
+                Financial support for essential family needs
+              </li>
+              <li id="support-item-2">
+                Food, clothing and other first-need items
+              </li>
+              <li id="support-item-3">
+                Partnerships with schools, institutions and local supporters
+              </li>
+            </ul>
+            <p class="section-copy" id="support-foot">
+              Small or large, every contribution helps us stay close to those who
+              need it most.
+            </p>
+          </article>
+
+          <article class="section-card">
+            <p class="section-eyebrow" id="docs-eyebrow">Documents</p>
+            <h2 class="section-title" id="docs-title">Read more about the group</h2>
+            <p class="section-copy" id="docs-copy">
+              Open the presentation material and the official support letter.
+            </p>
+            <div class="docs-grid">
+              <a
+                id="doc-presentation-link"
+                class="doc-btn"
+                href="presentation.html"
+              >
+                <strong id="doc-pdf-title">Presentation PDF</strong>
+                <small id="doc-pdf-meta"
+                  >Overview of the group's work and impact</small
+                >
+              </a>
+              <a
+                id="doc-support-link"
+                class="doc-btn"
+                href="support.html"
+              >
+                <strong id="doc-letter-title">Support letter</strong>
+                <small id="doc-letter-meta"
+                  >Official support letter for supporters and partners</small
+                >
+              </a>
+            </div>
+          </article>
+        </section>
+
         <p class="credit">
           <span id="credit-prefix">made with heart for</span>
           <span class="handwritten">Apostoli Agapis</span>
@@ -993,20 +1364,91 @@
           htmlLang: "en",
           dir: "ltr",
           script: "latin",
-          title: "Apostoli Agapis | Welcome",
-          activeLabel: "Active",
-          uiNote: "Tap a flag above",
-          brandEyebrow: "Mission of Love",
+          title: "Apostoli Agapis | Mission of Love",
+          activeLabel: "Language",
+          uiNote: "Choose a language above",
+          brandEyebrow: "Volunteer Solidarity Group",
           brandLine1: "Mission",
           brandLine2: "of Love",
-          brandSubtitle:
-            "Volunteer solidarity, warm welcome, and people-first care in Heraklion, Crete.",
+          brandSubtitle: "Purely volunteer solidarity in Heraklion, Crete.",
+          visualLabel: "Volunteer Solidarity Group",
           greeting: "Welcome!",
           line1:
             "The Mission of Love, the Volunteer Solidarity Group of Crete, warmly welcomes you.",
           line2:
             "We are excited to share this journey with you and explore new technologies and their applications together.",
           line3: "Enjoy your stay in Heraklion, Crete!",
+          aboutEyebrow: "Who we are",
+          aboutTitle: "Volunteer solidarity, every single day",
+          aboutCopy1:
+            "For many years, the group has stood beside families facing hardship and has offered practical help with humanity and care.",
+          aboutCopy2:
+            "It receives no state subsidy and relies entirely on volunteers, supporters and people who believe in solidarity.",
+          impactEyebrow: "In numbers",
+          impactTitle: "Our impact over the last five years",
+          impactIntro:
+            "With the help of volunteers and supporters, Apostoli Agapis has supported people across everyday life, emergencies and humanitarian action.",
+          stats: [
+            {
+              value: "250",
+              label: "families receive food and clothing support every month",
+            },
+            {
+              value: "500",
+              label: "children receive school supplies every year",
+            },
+            {
+              value: "120",
+              label: "people found work through the group's network",
+            },
+            {
+              value: "350",
+              label: "families were equipped with furniture and appliances",
+            },
+            {
+              value: "440",
+              label: "families received blankets, bedding and carpets",
+            },
+            {
+              value: "18",
+              label: "people with disabilities received wheelchairs",
+            },
+          ],
+          supportEyebrow: "How to support",
+          supportTitle: "Every contribution matters",
+          supportCopy:
+            "You can support the work with financial help, food, basic necessities or by partnering as a business, school or local organization.",
+          supportItems: [
+            "Financial support for essential family needs",
+            "Food, clothing and other first-need items",
+            "Partnerships with schools, institutions and local supporters",
+          ],
+          supportFoot:
+            "Small or large, every contribution helps us stay close to those who need it most.",
+          docsEyebrow: "Documents",
+          docsTitle: "Explore in more depth",
+          docsCopy:
+            "Open the extended content of the site instead of separate document files.",
+          docPdfTitle: "Group presentation",
+          docPdfMeta: "Jump to the fuller story, mission and fields of action",
+          docLetterTitle: "Support message",
+          docLetterMeta: "Jump to the text for supporters, partners and donors",
+          presentationEyebrow: "Presentation",
+          presentationTitle: "The story behind the group",
+          presentationCopy1:
+            "Apostoli Agapis is built on many years of volunteer experience and practical solidarity in Crete.",
+          presentationCopy2:
+            "The group supports families, children, young parents and vulnerable people with food, clothing, school supplies, household items and everyday care.",
+          presentationCopy3:
+            "It also responds in times of crisis, works with schools and local institutions, and takes part in humanitarian actions in Greece and abroad.",
+          letterEyebrow: "Support message",
+          letterTitle: "Why support Apostoli Agapis",
+          letterCopy1:
+            "The group receives no state funding and depends entirely on the generosity of volunteers, supporters, businesses and local communities.",
+          letterCopy2:
+            "Support can come through financial help, food, clothing and other first-need items that go directly to families and people who need them most.",
+          letterCopy3:
+            "Every contribution strengthens the mission and helps the group keep offering dignity, warmth and practical support.",
           location: "Heraklion, Crete",
           socialPage: "Page",
           socialGroup: "Group",
@@ -1019,20 +1461,91 @@
           htmlLang: "el",
           dir: "ltr",
           script: "greek",
-          title: "Αποστολή Αγάπης | Καλώς ήρθατε",
+          title: "Αποστολή Αγάπης | Εθελοντική Ομάδα Αλληλεγγύης",
           activeLabel: "Γλώσσα",
-          uiNote: "Πατήστε μια σημαία πιο πάνω",
-          brandEyebrow: "Αποστολή Αγάπης",
+          uiNote: "Επίλεξε γλώσσα πιο πάνω",
+          brandEyebrow: "Εθελοντική Ομάδα Αλληλεγγύης",
           brandLine1: "Αποστολή",
           brandLine2: "Αγάπης",
-          brandSubtitle:
-            "Εθελοντική αλληλεγγύη, ζεστό καλωσόρισμα και φροντίδα με επίκεντρο τον άνθρωπο στο Ηράκλειο Κρήτης.",
+          brandSubtitle: "Αμιγώς εθελοντική αλληλεγγύη στο Ηράκλειο Κρήτης.",
+          visualLabel: "Εθελοντική Ομάδα Αλληλεγγύης",
           greeting: "Καλώς ήρθατε!",
           line1:
             "Η Αποστολή Αγάπης, η Εθελοντική Ομάδα Αλληλεγγύης της Κρήτης, σας καλωσορίζει θερμά.",
           line2:
             "Χαιρόμαστε που μοιραζόμαστε αυτό το ταξίδι μαζί σας και που εξερευνούμε μαζί νέες τεχνολογίες και τις εφαρμογές τους.",
           line3: "Απολαύστε τη διαμονή σας στο Ηράκλειο Κρήτης!",
+          aboutEyebrow: "Ποιοι είμαστε",
+          aboutTitle: "Εθελοντική αλληλεγγύη, κάθε μέρα",
+          aboutCopy1:
+            "Για πολλά χρόνια στεκόμαστε δίπλα σε οικογένειες που δοκιμάζονται και προσφέρουμε ουσιαστική βοήθεια με ανθρωπιά και φροντίδα.",
+          aboutCopy2:
+            "Η ομάδα δεν λαμβάνει κρατική επιχορήγηση και στηρίζεται αποκλειστικά σε εθελοντές, υποστηρικτές και ανθρώπους που πιστεύουν στη δύναμη της αλληλεγγύης.",
+          impactEyebrow: "Σε αριθμούς",
+          impactTitle: "Η προσφορά μας τα τελευταία πέντε χρόνια",
+          impactIntro:
+            "Με τη στήριξη εθελοντών και υποστηρικτών, η Αποστολή Αγάπης στάθηκε δίπλα σε ανθρώπους στην καθημερινότητα, σε περιόδους κρίσης και σε ανθρωπιστικές αποστολές.",
+          stats: [
+            {
+              value: "250",
+              label: "οικογένειες στηρίζονται κάθε μήνα με τρόφιμα και είδη ένδυσης",
+            },
+            {
+              value: "500",
+              label: "παιδιά λαμβάνουν σχολικά είδη κάθε χρόνο",
+            },
+            {
+              value: "120",
+              label: "άνθρωποι βρήκαν εργασία μέσα από το δίκτυο της ομάδας",
+            },
+            {
+              value: "350",
+              label: "οικογένειες εξοπλίστηκαν με έπιπλα και ηλεκτρικές συσκευές",
+            },
+            {
+              value: "440",
+              label: "οικογένειες έλαβαν κουβέρτες, κλινοσκεπάσματα και χαλιά",
+            },
+            {
+              value: "18",
+              label: "άτομα ΑμεΑ προμηθεύτηκαν αναπηρικά αμαξίδια",
+            },
+          ],
+          supportEyebrow: "Πώς μπορείς να στηρίξεις",
+          supportTitle: "Κάθε προσφορά μετράει",
+          supportCopy:
+            "Μπορείς να στηρίξεις το έργο με οικονομική ενίσχυση, τρόφιμα, είδη πρώτης ανάγκης ή με συνεργασία ως επιχείρηση, σχολείο ή τοπικός φορέας.",
+          supportItems: [
+            "Οικονομική ενίσχυση για βασικές ανάγκες οικογενειών",
+            "Τρόφιμα, ρούχα και άλλα είδη πρώτης ανάγκης",
+            "Συνεργασίες με σχολεία, φορείς και τοπικούς υποστηρικτές",
+          ],
+          supportFoot:
+            "Μικρή ή μεγάλη, κάθε ενίσχυση μας βοηθά να στεκόμαστε δίπλα σε όσους μας χρειάζονται περισσότερο.",
+          docsEyebrow: "Έγγραφα",
+          docsTitle: "Δες πιο αναλυτικά το έργο",
+          docsCopy:
+            "Άνοιξε το αναλυτικό περιεχόμενο του site αντί για ξεχωριστά αρχεία.",
+          docPdfTitle: "Παρουσίαση ομάδας",
+          docPdfMeta: "Μετάβαση στην αναλυτική ιστορία, την αποστολή και τις δράσεις",
+          docLetterTitle: "Κείμενο στήριξης",
+          docLetterMeta: "Μετάβαση στο κείμενο για υποστηρικτές, συνεργάτες και δωρητές",
+          presentationEyebrow: "Παρουσίαση",
+          presentationTitle: "Η ιστορία πίσω από την ομάδα",
+          presentationCopy1:
+            "Η Αποστολή Αγάπης είναι χτισμένη πάνω σε πολλά χρόνια εθελοντικής εμπειρίας και έμπρακτης αλληλεγγύης στην Κρήτη.",
+          presentationCopy2:
+            "Η ομάδα στηρίζει οικογένειες, παιδιά, νέους γονείς και ευάλωτους ανθρώπους με τρόφιμα, ρούχα, σχολικά είδη, είδη νοικοκυριού και καθημερινή φροντίδα.",
+          presentationCopy3:
+            "Παράλληλα ανταποκρίνεται σε περιόδους κρίσης, συνεργάζεται με σχολεία και τοπικούς φορείς και συμμετέχει σε ανθρωπιστικές δράσεις στην Ελλάδα και στο εξωτερικό.",
+          letterEyebrow: "Κείμενο στήριξης",
+          letterTitle: "Γιατί να στηρίξεις την Αποστολή Αγάπης",
+          letterCopy1:
+            "Η ομάδα δεν λαμβάνει κρατική χρηματοδότηση και βασίζεται αποκλειστικά στη γενναιοδωρία εθελοντών, υποστηρικτών, επιχειρήσεων και τοπικών κοινοτήτων.",
+          letterCopy2:
+            "Η στήριξη μπορεί να δοθεί με οικονομική ενίσχυση, τρόφιμα, ρούχα και άλλα είδη πρώτης ανάγκης που φτάνουν απευθείας σε οικογένειες και ανθρώπους που τα χρειάζονται περισσότερο.",
+          letterCopy3:
+            "Κάθε προσφορά δυναμώνει την αποστολή και βοηθά την ομάδα να συνεχίζει να προσφέρει αξιοπρέπεια, ζεστασιά και ουσιαστική βοήθεια.",
           location: "Ηράκλειο, Κρήτη",
           socialPage: "Σελίδα",
           socialGroup: "Ομάδα",
@@ -1045,17 +1558,90 @@
           htmlLang: "zh-Hans",
           dir: "ltr",
           script: "chinese",
-          title: "Apostoli Agapis | 欢迎您",
-          activeLabel: "当前",
-          uiNote: "点击上方旗帜",
-          brandEyebrow: "爱心使命",
+          title: "Apostoli Agapis | 爱心使命",
+          activeLabel: "语言",
+          uiNote: "请选择上方语言",
+          brandEyebrow: "志愿互助团队",
           brandLine1: "爱心",
           brandLine2: "使命",
-          brandSubtitle: "来自伊拉克利翁、克里特岛的志愿互助、温暖欢迎与以人为本的关怀。",
+          brandSubtitle: "位于伊拉克利翁、克里特岛的纯志愿互助团队。",
+          visualLabel: "志愿互助团队",
           greeting: "欢迎您！",
-          line1: "克里特岛“爱心使命”志愿互助团队热烈欢迎您的到来。",
-          line2: "我们期待与您一起探索新技术及其应用。",
+          line1:
+            "克里特岛“爱心使命”志愿互助团队热烈欢迎您的到来。",
+          line2:
+            "我们期待与您一起探索新技术及其应用。",
           line3: "祝您在克里特岛伊拉克利翁度过愉快的时光！",
+          aboutEyebrow: "我们是谁",
+          aboutTitle: "把志愿互助带进每一天",
+          aboutCopy1:
+            "多年来，我们一直陪伴身处困难中的家庭，以人性、关怀与实际帮助回应需要。",
+          aboutCopy2:
+            "团队不接受国家补助，完全依靠志愿者、支持者以及相信互助力量的人们。",
+          impactEyebrow: "数据",
+          impactTitle: "过去五年的影响",
+          impactIntro:
+            "在志愿者和支持者的帮助下，Apostoli Agapis 在日常生活、危机时期与人道行动中持续陪伴有需要的人。",
+          stats: [
+            {
+              value: "250",
+              label: "个家庭每月收到食品和衣物支持",
+            },
+            {
+              value: "500",
+              label: "名儿童每年获得学校用品",
+            },
+            {
+              value: "120",
+              label: "人通过团队网络找到了工作",
+            },
+            {
+              value: "350",
+              label: "个家庭获得家具和家电",
+            },
+            {
+              value: "440",
+              label: "个家庭收到毯子、床品和地毯",
+            },
+            {
+              value: "18",
+              label: "名残障人士获得轮椅",
+            },
+          ],
+          supportEyebrow: "如何支持我们",
+          supportTitle: "每一份帮助都很重要",
+          supportCopy:
+            "你可以通过经济支持、食品、生活必需品，或以企业、学校和本地机构合作的方式支持这项工作。",
+          supportItems: [
+            "为家庭基本需求提供经济支持",
+            "食品、衣物及其他生活必需品",
+            "与学校、机构及本地支持者建立合作",
+          ],
+          supportFoot:
+            "无论大小，每一份贡献都帮助我们继续陪伴最需要帮助的人。",
+          docsEyebrow: "文件",
+          docsTitle: "查看更完整的内容",
+          docsCopy: "打开站内的扩展内容，而不是单独的文档文件。",
+          docPdfTitle: "团队介绍",
+          docPdfMeta: "跳转到更完整的故事、使命与行动领域",
+          docLetterTitle: "支持说明",
+          docLetterMeta: "跳转到面向支持者、伙伴与捐助者的文字",
+          presentationEyebrow: "介绍",
+          presentationTitle: "团队背后的故事",
+          presentationCopy1:
+            "Apostoli Agapis 建立在多年志愿服务经验与克里特岛实际互助行动的基础之上。",
+          presentationCopy2:
+            "团队为家庭、儿童、年轻父母和脆弱群体提供食品、衣物、学习用品、家居物资和日常关怀。",
+          presentationCopy3:
+            "同时，团队也在危机时期作出回应，与学校和本地机构合作，并参与希腊及海外的人道行动。",
+          letterEyebrow: "支持说明",
+          letterTitle: "为什么支持 Apostoli Agapis",
+          letterCopy1:
+            "团队没有国家资助，完全依靠志愿者、支持者、企业以及本地社区的慷慨支持。",
+          letterCopy2:
+            "支持可以通过经济帮助、食品、衣物和其他生活必需品的形式提供，并直接送到最需要的人和家庭手中。",
+          letterCopy3:
+            "每一份贡献都在加强这份使命，帮助团队继续提供尊严、温暖与实际支持。",
           location: "伊拉克利翁，克里特岛",
           socialPage: "主页",
           socialGroup: "群组",
@@ -1068,19 +1654,90 @@
           htmlLang: "ko",
           dir: "ltr",
           script: "korean",
-          title: "Apostoli Agapis | 환영합니다",
-          activeLabel: "현재",
-          uiNote: "위의 국기를 눌러보세요",
-          brandEyebrow: "사랑의 사명",
+          title: "Apostoli Agapis | 사랑의 사명",
+          activeLabel: "언어",
+          uiNote: "위에서 언어를 선택하세요",
+          brandEyebrow: "자원 연대 봉사단",
           brandLine1: "사랑의",
           brandLine2: "사명",
-          brandSubtitle:
-            "헤라클리온, 크레타에서 이어지는 자원 연대와 따뜻한 환대, 사람 중심의 돌봄.",
+          brandSubtitle: "크레타 헤라클리온에서 활동하는 순수 자원 연대 단체입니다.",
+          visualLabel: "자원 연대 봉사단",
           greeting: "환영합니다!",
           line1:
             "크레타 사랑의 사명 자원봉사 연대 단체는 여러분을 진심으로 환영합니다.",
-          line2: "새로운 기술과 그 활용을 함께 나누기를 기대합니다.",
+          line2:
+            "새로운 기술과 그 활용을 함께 나누기를 기대합니다.",
           line3: "헤라클리온, 크레타에서 즐거운 시간 보내시길 바랍니다!",
+          aboutEyebrow: "우리는 누구인가",
+          aboutTitle: "매일 이어지는 자원 연대",
+          aboutCopy1:
+            "오랜 시간 동안 우리는 어려움에 놓인 가정 곁에서 인간적인 배려와 실질적인 도움을 전해 왔습니다.",
+          aboutCopy2:
+            "이 단체는 국가 보조금을 받지 않으며, 연대의 힘을 믿는 자원봉사자와 후원자들의 힘으로만 운영됩니다.",
+          impactEyebrow: "숫자로 보는 활동",
+          impactTitle: "지난 5년간의 영향",
+          impactIntro:
+            "자원봉사자와 후원자들의 도움으로 Apostoli Agapis는 일상, 위기 상황, 인도주의 활동 전반에서 사람들과 함께했습니다.",
+          stats: [
+            {
+              value: "250",
+              label: "가정이 매달 식료품과 의류 지원을 받습니다",
+            },
+            {
+              value: "500",
+              label: "명의 어린이가 매년 학용품을 받습니다",
+            },
+            {
+              value: "120",
+              label: "명이 단체 네트워크를 통해 일자리를 찾았습니다",
+            },
+            {
+              value: "350",
+              label: "가정이 가구와 가전제품을 지원받았습니다",
+            },
+            {
+              value: "440",
+              label: "가정이 담요와 침구, 카펫을 받았습니다",
+            },
+            {
+              value: "18",
+              label: "명의 장애인이 휠체어를 지원받았습니다",
+            },
+          ],
+          supportEyebrow: "지원하는 방법",
+          supportTitle: "모든 기여가 중요합니다",
+          supportCopy:
+            "재정 후원, 식료품, 생필품 또는 기업, 학교, 지역 기관과의 협력을 통해 이 활동을 도울 수 있습니다.",
+          supportItems: [
+            "가정의 기본 필요를 위한 재정 지원",
+            "식료품, 의류 및 기타 생필품",
+            "학교, 기관, 지역 후원자와의 협력",
+          ],
+          supportFoot:
+            "작든 크든 모든 기여는 가장 도움이 필요한 이웃 곁에 머물 수 있게 해 줍니다.",
+          docsEyebrow: "자료",
+          docsTitle: "더 자세히 보기",
+          docsCopy: "별도의 문서 파일 대신 사이트 안의 확장된 내용을 열어보세요.",
+          docPdfTitle: "단체 소개",
+          docPdfMeta: "더 자세한 이야기, 사명, 활동 영역으로 이동",
+          docLetterTitle: "지원 안내",
+          docLetterMeta: "후원자, 파트너, 기부자를 위한 글로 이동",
+          presentationEyebrow: "소개",
+          presentationTitle: "단체 뒤에 있는 이야기",
+          presentationCopy1:
+            "Apostoli Agapis는 오랜 자원봉사 경험과 크레타에서 이어진 실질적인 연대의 기반 위에 세워졌습니다.",
+          presentationCopy2:
+            "이 단체는 가족, 어린이, 젊은 부모, 취약한 이웃에게 식료품, 의류, 학용품, 생활용품과 일상의 돌봄을 제공합니다.",
+          presentationCopy3:
+            "또한 위기 상황에 대응하고, 학교와 지역 기관과 협력하며, 그리스 안팎의 인도주의 활동에도 참여합니다.",
+          letterEyebrow: "지원 안내",
+          letterTitle: "왜 Apostoli Agapis를 지원해야 할까요",
+          letterCopy1:
+            "이 단체는 국가 지원금을 받지 않으며 자원봉사자, 후원자, 기업, 지역사회의 관대한 도움에 전적으로 의존합니다.",
+          letterCopy2:
+            "지원은 재정 후원, 식료품, 의류 및 기타 생필품의 형태로 이루어질 수 있으며 가장 필요한 사람들과 가정에 직접 전달됩니다.",
+          letterCopy3:
+            "모든 기여는 이 사명을 더욱 굳건하게 만들고, 단체가 존엄과 따뜻함, 실질적인 도움을 계속 전할 수 있게 해 줍니다.",
           location: "헤라클리온, 크레타",
           socialPage: "페이지",
           socialGroup: "그룹",
@@ -1093,23 +1750,94 @@
           htmlLang: "ar",
           dir: "rtl",
           script: "arabic",
-          title: "Apostoli Agapis | أهلاً وسهلاً بكم",
-          activeLabel: "النشطة",
-          uiNote: "اضغط على العلم في الأعلى",
-          brandEyebrow: "بعثة المحبة",
+          title: "Apostoli Agapis | بعثة المحبة",
+          activeLabel: "اللغة",
+          uiNote: "اختر اللغة من الأعلى",
+          brandEyebrow: "فريق التضامن التطوعي",
           brandLine1: "بعثة",
           brandLine2: "المحبة",
-          brandSubtitle:
-            "تضامن تطوعي، ترحيب دافئ، ورعاية تضع الإنسان أولاً في هيراكليون، كريت.",
+          brandSubtitle: "تضامن تطوعي خالص في هيراكليون، كريت.",
+          visualLabel: "فريق التضامن التطوعي",
           greeting: "أهلاً وسهلاً بكم!",
           line1: "ترحب بكم بعثة المحبة، وهي مجموعة تطوعية للتضامن في كريت.",
-          line2: "يسعدنا أن نشارككم شغفنا بالتقنيات الجديدة وتطبيقاتها.",
+          line2:
+            "يسعدنا أن نشارككم شغفنا بالتقنيات الجديدة وتطبيقاتها.",
           line3: "نتمنى لكم إقامة ممتعة في هيراكليون، كريت!",
+          aboutEyebrow: "من نحن",
+          aboutTitle: "تضامن تطوعي في كل يوم",
+          aboutCopy1:
+            "منذ سنوات نقف إلى جانب العائلات التي تمر بظروف صعبة ونقدم مساعدة عملية بإنسانية ورعاية.",
+          aboutCopy2:
+            "لا تتلقى المجموعة أي دعم حكومي وتعتمد بالكامل على المتطوعين والداعمين وكل من يؤمن بقوة التضامن.",
+          impactEyebrow: "بالأرقام",
+          impactTitle: "أثرنا خلال السنوات الخمس الأخيرة",
+          impactIntro:
+            "بمساندة المتطوعين والداعمين، وقفت بعثة المحبة إلى جانب الناس في الحياة اليومية وفترات الأزمات والعمل الإنساني.",
+          stats: [
+            {
+              value: "250",
+              label: "عائلة تتلقى دعماً شهرياً من الغذاء والملابس",
+            },
+            {
+              value: "500",
+              label: "طفل يحصل على مستلزمات مدرسية كل عام",
+            },
+            {
+              value: "120",
+              label: "شخصاً وجدوا عملاً عبر شبكة المجموعة",
+            },
+            {
+              value: "350",
+              label: "عائلة حصلت على أثاث وأجهزة منزلية",
+            },
+            {
+              value: "440",
+              label: "عائلة تلقت بطانيات وأغطية وسجاداً",
+            },
+            {
+              value: "18",
+              label: "شخصاً من ذوي الإعاقة حصلوا على كراسٍ متحركة",
+            },
+          ],
+          supportEyebrow: "كيف تدعمنا",
+          supportTitle: "كل مساهمة تصنع فرقاً",
+          supportCopy:
+            "يمكنكم دعم العمل عبر المساعدة المالية أو المواد الغذائية أو المستلزمات الأساسية أو من خلال الشراكة كمؤسسة أو مدرسة أو جهة محلية.",
+          supportItems: [
+            "دعم مالي للاحتياجات الأساسية للعائلات",
+            "مواد غذائية وملابس ومستلزمات أساسية أخرى",
+            "شراكات مع المدارس والمؤسسات والداعمين المحليين",
+          ],
+          supportFoot:
+            "سواء كانت المساهمة صغيرة أم كبيرة، فهي تساعدنا على البقاء قريبين ممن يحتاجون إلينا أكثر.",
+          docsEyebrow: "المستندات",
+          docsTitle: "اطلع على محتوى أوسع",
+          docsCopy: "افتح المحتوى الموسع داخل الموقع بدلاً من ملفات منفصلة.",
+          docPdfTitle: "عرض المجموعة",
+          docPdfMeta: "انتقل إلى القصة الكاملة والرسالة ومجالات العمل",
+          docLetterTitle: "نص الدعم",
+          docLetterMeta: "انتقل إلى النص المخصص للداعمين والشركاء والمتبرعين",
+          presentationEyebrow: "عرض",
+          presentationTitle: "القصة وراء المجموعة",
+          presentationCopy1:
+            "بُنيت بعثة المحبة على سنوات طويلة من الخبرة التطوعية والتضامن العملي في كريت.",
+          presentationCopy2:
+            "تدعم المجموعة العائلات والأطفال والآباء الجدد والأشخاص الأكثر هشاشة بالغذاء والملابس واللوازم المدرسية ومستلزمات المنزل والرعاية اليومية.",
+          presentationCopy3:
+            "كما تستجيب في أوقات الأزمات، وتتعاون مع المدارس والجهات المحلية، وتشارك في أعمال إنسانية داخل اليونان وخارجها.",
+          letterEyebrow: "نص الدعم",
+          letterTitle: "لماذا تدعم بعثة المحبة",
+          letterCopy1:
+            "لا تتلقى المجموعة أي تمويل حكومي وتعتمد بالكامل على كرم المتطوعين والداعمين والشركات والمجتمعات المحلية.",
+          letterCopy2:
+            "يمكن أن يأتي الدعم على شكل مساعدة مالية أو مواد غذائية أو ملابس أو مستلزمات أساسية أخرى تصل مباشرة إلى العائلات والأشخاص الأكثر حاجة.",
+          letterCopy3:
+            "كل مساهمة تقوي هذه الرسالة وتساعد المجموعة على مواصلة تقديم الكرامة والدفء والدعم العملي.",
           location: "هيراكليون، كريت",
           socialPage: "الصفحة",
           socialGroup: "المجموعة",
           socialInstagram: "إنستغرام",
-          creditPrefix: "صُنعت بمحبة من أجل",
+          creditPrefix: "صُنِع بمحبة من أجل",
         },
         es: {
           flagCode: "es",
@@ -1117,20 +1845,91 @@
           htmlLang: "es",
           dir: "ltr",
           script: "latin",
-          title: "Apostoli Agapis | ¡Bienvenidos!",
-          activeLabel: "Activa",
-          uiNote: "Pulsa una bandera arriba",
-          brandEyebrow: "Misión del Amor",
+          title: "Apostoli Agapis | Misión del Amor",
+          activeLabel: "Idioma",
+          uiNote: "Elige un idioma arriba",
+          brandEyebrow: "Grupo Voluntario de Solidaridad",
           brandLine1: "Misión del",
           brandLine2: "Amor",
-          brandSubtitle:
-            "Solidaridad voluntaria, cálida bienvenida y cuidado centrado en las personas en Heraclión, Creta.",
+          brandSubtitle: "Solidaridad puramente voluntaria en Heraclión, Creta.",
+          visualLabel: "Grupo Voluntario de Solidaridad",
           greeting: "¡Bienvenidos!",
           line1:
             "La Misión del Amor, el Grupo de Voluntariado de Solidaridad de Creta, les da una cálida bienvenida.",
           line2:
             "Estamos emocionados de compartir este viaje con ustedes y explorar juntos las nuevas tecnologías y sus aplicaciones.",
           line3: "¡Disfruten su estancia en Heraclión, Creta!",
+          aboutEyebrow: "Quiénes somos",
+          aboutTitle: "Solidaridad voluntaria, cada día",
+          aboutCopy1:
+            "Durante muchos años, el grupo ha estado al lado de familias en dificultad y ha ofrecido ayuda práctica con humanidad y cuidado.",
+          aboutCopy2:
+            "No recibe ninguna subvención estatal y depende por completo de voluntarios, apoyos y personas que creen en la solidaridad.",
+          impactEyebrow: "En cifras",
+          impactTitle: "Nuestro impacto en los últimos cinco años",
+          impactIntro:
+            "Con la ayuda de voluntarios y colaboradores, Apostoli Agapis ha acompañado a personas en la vida cotidiana, en emergencias y en acciones humanitarias.",
+          stats: [
+            {
+              value: "250",
+              label: "familias reciben apoyo mensual con alimentos y ropa",
+            },
+            {
+              value: "500",
+              label: "niños reciben material escolar cada año",
+            },
+            {
+              value: "120",
+              label: "personas encontraron trabajo a través de la red del grupo",
+            },
+            {
+              value: "350",
+              label: "familias fueron equipadas con muebles y electrodomésticos",
+            },
+            {
+              value: "440",
+              label: "familias recibieron mantas, ropa de cama y alfombras",
+            },
+            {
+              value: "18",
+              label: "personas con discapacidad recibieron sillas de ruedas",
+            },
+          ],
+          supportEyebrow: "Cómo apoyar",
+          supportTitle: "Toda contribución cuenta",
+          supportCopy:
+            "Puedes apoyar este trabajo con ayuda económica, alimentos, productos básicos o colaborando como empresa, escuela u organización local.",
+          supportItems: [
+            "Apoyo económico para necesidades esenciales de las familias",
+            "Alimentos, ropa y otros artículos de primera necesidad",
+            "Colaboraciones con escuelas, instituciones y apoyos locales",
+          ],
+          supportFoot:
+            "Grande o pequeña, cada contribución nos ayuda a permanecer cerca de quienes más lo necesitan.",
+          docsEyebrow: "Más contenido",
+          docsTitle: "Lee la historia completa",
+          docsCopy:
+            "Abre el contenido ampliado dentro del sitio en lugar de archivos separados.",
+          docPdfTitle: "Presentación completa",
+          docPdfMeta: "Salta a la historia, la misión y las áreas de acción",
+          docLetterTitle: "Texto de apoyo",
+          docLetterMeta: "Salta al texto para colaboradores, aliados y donantes",
+          presentationEyebrow: "Presentación",
+          presentationTitle: "La historia detrás del grupo",
+          presentationCopy1:
+            "Apostoli Agapis se apoya en muchos años de experiencia voluntaria y solidaridad práctica en Creta.",
+          presentationCopy2:
+            "El grupo apoya a familias, niños, padres jóvenes y personas vulnerables con alimentos, ropa, material escolar, artículos para el hogar y cuidado cotidiano.",
+          presentationCopy3:
+            "También responde en momentos de crisis, trabaja con escuelas e instituciones locales y participa en acciones humanitarias en Grecia y en el extranjero.",
+          letterEyebrow: "Texto de apoyo",
+          letterTitle: "Por qué apoyar a Apostoli Agapis",
+          letterCopy1:
+            "El grupo no recibe financiación estatal y depende por completo de la generosidad de voluntarios, colaboradores, empresas y comunidades locales.",
+          letterCopy2:
+            "La ayuda puede llegar en forma de apoyo económico, alimentos, ropa y otros artículos de primera necesidad que van directamente a las familias y personas que más lo necesitan.",
+          letterCopy3:
+            "Cada contribución fortalece la misión y ayuda al grupo a seguir ofreciendo dignidad, calidez y apoyo práctico.",
           location: "Heraclión, Creta",
           socialPage: "Página",
           socialGroup: "Grupo",
@@ -1143,20 +1942,91 @@
           htmlLang: "fr",
           dir: "ltr",
           script: "latin",
-          title: "Apostoli Agapis | Bienvenue !",
-          activeLabel: "Active",
-          uiNote: "Touchez un drapeau au-dessus",
-          brandEyebrow: "Mission de l'Amour",
+          title: "Apostoli Agapis | Mission d'Amour",
+          activeLabel: "Langue",
+          uiNote: "Choisissez une langue ci-dessus",
+          brandEyebrow: "Groupe Bénévole de Solidarité",
           brandLine1: "Mission de",
           brandLine2: "l'Amour",
-          brandSubtitle:
-            "Solidarité bénévole, accueil chaleureux et attention centrée sur les personnes à Héraklion, Crète.",
+          brandSubtitle: "Une solidarité entièrement bénévole à Héraklion, en Crète.",
+          visualLabel: "Groupe bénévole de solidarité",
           greeting: "Bienvenue !",
           line1:
             "La Mission de l'Amour, le Groupe de Solidarité Bénévole de Crète, vous souhaite la bienvenue chaleureusement.",
           line2:
             "Nous sommes impatients de partager ce voyage avec vous et d'explorer ensemble les nouvelles technologies et leurs applications.",
           line3: "Profitez de votre séjour à Héraklion, Crète !",
+          aboutEyebrow: "Qui sommes-nous",
+          aboutTitle: "La solidarité bénévole, chaque jour",
+          aboutCopy1:
+            "Depuis de nombreuses années, le groupe se tient aux côtés des familles en difficulté et apporte une aide concrète avec humanité et attention.",
+          aboutCopy2:
+            "Il ne reçoit aucune subvention publique et repose entièrement sur les bénévoles, les soutiens et les personnes qui croient en la solidarité.",
+          impactEyebrow: "En chiffres",
+          impactTitle: "Notre impact au cours des cinq dernières années",
+          impactIntro:
+            "Avec l'aide des bénévoles et des soutiens, Apostoli Agapis a accompagné des personnes dans le quotidien, les urgences et les actions humanitaires.",
+          stats: [
+            {
+              value: "250",
+              label: "familles reçoivent chaque mois une aide alimentaire et vestimentaire",
+            },
+            {
+              value: "500",
+              label: "enfants reçoivent des fournitures scolaires chaque année",
+            },
+            {
+              value: "120",
+              label: "personnes ont trouvé un travail grâce au réseau du groupe",
+            },
+            {
+              value: "350",
+              label: "familles ont été équipées en meubles et appareils électroménagers",
+            },
+            {
+              value: "440",
+              label: "familles ont reçu des couvertures, du linge de lit et des tapis",
+            },
+            {
+              value: "18",
+              label: "personnes en situation de handicap ont reçu un fauteuil roulant",
+            },
+          ],
+          supportEyebrow: "Comment soutenir",
+          supportTitle: "Chaque contribution compte",
+          supportCopy:
+            "Vous pouvez soutenir cette action par une aide financière, des denrées, des produits de première nécessité ou un partenariat en tant qu'entreprise, école ou structure locale.",
+          supportItems: [
+            "Un soutien financier pour les besoins essentiels des familles",
+            "Des denrées, des vêtements et d'autres produits de première nécessité",
+            "Des partenariats avec des écoles, des institutions et des soutiens locaux",
+          ],
+          supportFoot:
+            "Petite ou grande, chaque contribution nous aide à rester proches de celles et ceux qui en ont le plus besoin.",
+          docsEyebrow: "Contenu enrichi",
+          docsTitle: "Lire l'histoire complète",
+          docsCopy:
+            "Ouvrez le contenu enrichi du site au lieu de fichiers séparés.",
+          docPdfTitle: "Présentation complète",
+          docPdfMeta: "Aller vers l'histoire, la mission et les champs d'action",
+          docLetterTitle: "Texte de soutien",
+          docLetterMeta: "Aller vers le texte destiné aux soutiens, partenaires et donateurs",
+          presentationEyebrow: "Présentation",
+          presentationTitle: "L'histoire derrière le groupe",
+          presentationCopy1:
+            "Apostoli Agapis s'appuie sur de nombreuses années d'expérience bénévole et de solidarité concrète en Crète.",
+          presentationCopy2:
+            "Le groupe soutient les familles, les enfants, les jeunes parents et les personnes vulnérables avec des denrées, des vêtements, des fournitures scolaires, des articles pour la maison et un accompagnement quotidien.",
+          presentationCopy3:
+            "Il intervient aussi en période de crise, collabore avec les écoles et les structures locales, et participe à des actions humanitaires en Grèce et à l'étranger.",
+          letterEyebrow: "Texte de soutien",
+          letterTitle: "Pourquoi soutenir Apostoli Agapis",
+          letterCopy1:
+            "Le groupe ne reçoit aucun financement public et dépend entièrement de la générosité des bénévoles, des soutiens, des entreprises et des communautés locales.",
+          letterCopy2:
+            "Le soutien peut prendre la forme d'une aide financière, de denrées, de vêtements et d'autres produits de première nécessité qui vont directement aux familles et aux personnes qui en ont le plus besoin.",
+          letterCopy3:
+            "Chaque contribution renforce la mission et aide le groupe à continuer d'offrir dignité, chaleur humaine et soutien concret.",
           location: "Héraklion, Crète",
           socialPage: "Page",
           socialGroup: "Groupe",
@@ -1169,20 +2039,91 @@
           htmlLang: "it",
           dir: "ltr",
           script: "latin",
-          title: "Apostoli Agapis | Benvenuti!",
-          activeLabel: "Attiva",
-          uiNote: "Tocca una bandiera sopra",
-          brandEyebrow: "Missione dell'Amore",
+          title: "Apostoli Agapis | Missione dell'Amore",
+          activeLabel: "Lingua",
+          uiNote: "Scegli una lingua qui sopra",
+          brandEyebrow: "Gruppo Volontario di Solidarietà",
           brandLine1: "Missione dell'",
           brandLine2: "Amore",
-          brandSubtitle:
-            "Solidarieta volontaria, calorosa accoglienza e cura centrata sulle persone a Heraklion, Creta.",
+          brandSubtitle: "Solidarietà interamente volontaria a Heraklion, Creta.",
+          visualLabel: "Gruppo volontario di solidarietà",
           greeting: "Benvenuti!",
           line1:
             "La Missione dell'Amore, il Gruppo di Solidarietà Volontaria di Creta, vi dà un caloroso benvenuto.",
           line2:
             "Siamo entusiasti di condividere questo percorso con voi ed esplorare insieme le nuove tecnologie e le loro applicazioni.",
           line3: "Buon soggiorno a Heraklion, Creta!",
+          aboutEyebrow: "Chi siamo",
+          aboutTitle: "Solidarietà volontaria, ogni giorno",
+          aboutCopy1:
+            "Da molti anni il gruppo è accanto alle famiglie in difficoltà e offre un aiuto concreto con umanità e cura.",
+          aboutCopy2:
+            "Non riceve alcun contributo statale e si basa interamente su volontari, sostenitori e persone che credono nella solidarietà.",
+          impactEyebrow: "In numeri",
+          impactTitle: "Il nostro impatto negli ultimi cinque anni",
+          impactIntro:
+            "Con l'aiuto di volontari e sostenitori, Apostoli Agapis ha accompagnato le persone nella vita quotidiana, nelle emergenze e nelle azioni umanitarie.",
+          stats: [
+            {
+              value: "250",
+              label: "famiglie ricevono ogni mese sostegno con cibo e abiti",
+            },
+            {
+              value: "500",
+              label: "bambini ricevono materiale scolastico ogni anno",
+            },
+            {
+              value: "120",
+              label: "persone hanno trovato lavoro attraverso la rete del gruppo",
+            },
+            {
+              value: "350",
+              label: "famiglie hanno ricevuto mobili ed elettrodomestici",
+            },
+            {
+              value: "440",
+              label: "famiglie hanno ricevuto coperte, biancheria da letto e tappeti",
+            },
+            {
+              value: "18",
+              label: "persone con disabilità hanno ricevuto sedie a rotelle",
+            },
+          ],
+          supportEyebrow: "Come sostenere",
+          supportTitle: "Ogni contributo conta",
+          supportCopy:
+            "Puoi sostenere questo lavoro con aiuti economici, cibo, beni di prima necessità o tramite una collaborazione come impresa, scuola o realtà locale.",
+          supportItems: [
+            "Sostegno economico per i bisogni essenziali delle famiglie",
+            "Cibo, vestiti e altri beni di prima necessità",
+            "Collaborazioni con scuole, istituzioni e sostenitori locali",
+          ],
+          supportFoot:
+            "Piccolo o grande, ogni contributo ci aiuta a restare vicini a chi ha più bisogno.",
+          docsEyebrow: "Contenuto extra",
+          docsTitle: "Leggi la storia completa",
+          docsCopy:
+            "Apri il contenuto esteso del sito invece di file separati.",
+          docPdfTitle: "Presentazione completa",
+          docPdfMeta: "Vai alla storia, alla missione e agli ambiti di azione",
+          docLetterTitle: "Testo di sostegno",
+          docLetterMeta: "Vai al testo per sostenitori, partner e donatori",
+          presentationEyebrow: "Presentazione",
+          presentationTitle: "La storia dietro il gruppo",
+          presentationCopy1:
+            "Apostoli Agapis nasce da molti anni di esperienza volontaria e di solidarietà concreta a Creta.",
+          presentationCopy2:
+            "Il gruppo sostiene famiglie, bambini, giovani genitori e persone vulnerabili con cibo, vestiti, materiale scolastico, articoli per la casa e cura quotidiana.",
+          presentationCopy3:
+            "Risponde inoltre nei momenti di crisi, collabora con scuole e realtà locali e partecipa ad azioni umanitarie in Grecia e all'estero.",
+          letterEyebrow: "Testo di sostegno",
+          letterTitle: "Perché sostenere Apostoli Agapis",
+          letterCopy1:
+            "Il gruppo non riceve fondi pubblici e dipende interamente dalla generosità di volontari, sostenitori, imprese e comunità locali.",
+          letterCopy2:
+            "Il sostegno può arrivare sotto forma di aiuto economico, cibo, vestiti e altri beni di prima necessità che raggiungono direttamente le famiglie e le persone che ne hanno più bisogno.",
+          letterCopy3:
+            "Ogni contributo rafforza la missione e aiuta il gruppo a continuare a offrire dignità, calore umano e supporto concreto.",
           location: "Heraklion, Creta",
           socialPage: "Pagina",
           socialGroup: "Gruppo",
@@ -1195,20 +2136,91 @@
           htmlLang: "de",
           dir: "ltr",
           script: "latin",
-          title: "Apostoli Agapis | Willkommen!",
-          activeLabel: "Aktiv",
-          uiNote: "Tippe oben auf eine Flagge",
-          brandEyebrow: "Mission der Liebe",
+          title: "Apostoli Agapis | Mission der Liebe",
+          activeLabel: "Sprache",
+          uiNote: "Wähle oben eine Sprache",
+          brandEyebrow: "Freiwillige Solidaritätsgruppe",
           brandLine1: "Mission der",
           brandLine2: "Liebe",
-          brandSubtitle:
-            "Freiwillige Solidarität, ein herzlicher Empfang und menschennahe Fürsorge in Heraklion, Kreta.",
+          brandSubtitle: "Rein ehrenamtliche Solidarität in Heraklion auf Kreta.",
+          visualLabel: "Freiwillige Solidaritätsgruppe",
           greeting: "Willkommen!",
           line1:
             "Die Mission der Liebe, die Freiwilligengruppe der Solidarität auf Kreta, heißt Sie herzlich willkommen.",
           line2:
             "Wir freuen uns, diese Reise mit Ihnen zu teilen und gemeinsam neue Technologien und ihre Anwendungen zu entdecken.",
           line3: "Genießen Sie Ihren Aufenthalt in Heraklion, Kreta!",
+          aboutEyebrow: "Wer wir sind",
+          aboutTitle: "Ehrenamtliche Solidarität, jeden Tag",
+          aboutCopy1:
+            "Seit vielen Jahren steht die Gruppe Familien in schwierigen Lebenslagen zur Seite und bietet konkrete Hilfe mit Menschlichkeit und Fürsorge.",
+          aboutCopy2:
+            "Sie erhält keine staatliche Förderung und stützt sich vollständig auf Freiwillige, Unterstützende und Menschen, die an Solidarität glauben.",
+          impactEyebrow: "In Zahlen",
+          impactTitle: "Unsere Wirkung in den letzten fünf Jahren",
+          impactIntro:
+            "Mit Hilfe von Freiwilligen und Unterstützenden hat Apostoli Agapis Menschen im Alltag, in Notlagen und in humanitären Einsätzen begleitet.",
+          stats: [
+            {
+              value: "250",
+              label: "Familien erhalten jeden Monat Unterstützung mit Lebensmitteln und Kleidung",
+            },
+            {
+              value: "500",
+              label: "Kinder erhalten jedes Jahr Schulmaterial",
+            },
+            {
+              value: "120",
+              label: "Menschen fanden über das Netzwerk der Gruppe Arbeit",
+            },
+            {
+              value: "350",
+              label: "Familien wurden mit Möbeln und Elektrogeräten ausgestattet",
+            },
+            {
+              value: "440",
+              label: "Familien erhielten Decken, Bettwäsche und Teppiche",
+            },
+            {
+              value: "18",
+              label: "Menschen mit Behinderung erhielten Rollstühle",
+            },
+          ],
+          supportEyebrow: "Wie man helfen kann",
+          supportTitle: "Jeder Beitrag zählt",
+          supportCopy:
+            "Du kannst diese Arbeit mit finanzieller Hilfe, Lebensmitteln, Dingen des täglichen Bedarfs oder durch eine Partnerschaft als Unternehmen, Schule oder lokale Einrichtung unterstützen.",
+          supportItems: [
+            "Finanzielle Unterstützung für grundlegende Familienbedürfnisse",
+            "Lebensmittel, Kleidung und andere Dinge des täglichen Bedarfs",
+            "Partnerschaften mit Schulen, Institutionen und lokalen Unterstützenden",
+          ],
+          supportFoot:
+            "Ob klein oder groß, jeder Beitrag hilft uns, nahe bei den Menschen zu bleiben, die uns am meisten brauchen.",
+          docsEyebrow: "Mehr Inhalt",
+          docsTitle: "Die ganze Geschichte lesen",
+          docsCopy:
+            "Öffne die erweiterten Inhalte direkt auf der Website statt in separaten Dateien.",
+          docPdfTitle: "Vollständige Präsentation",
+          docPdfMeta: "Zur Geschichte, Mission und den Arbeitsfeldern springen",
+          docLetterTitle: "Unterstützungstext",
+          docLetterMeta: "Zum Text für Unterstützende, Partner und Spendende springen",
+          presentationEyebrow: "Präsentation",
+          presentationTitle: "Die Geschichte hinter der Gruppe",
+          presentationCopy1:
+            "Apostoli Agapis baut auf vielen Jahren ehrenamtlicher Erfahrung und gelebter Solidarität auf Kreta auf.",
+          presentationCopy2:
+            "Die Gruppe unterstützt Familien, Kinder, junge Eltern und besonders verletzliche Menschen mit Lebensmitteln, Kleidung, Schulmaterial, Haushaltsartikeln und alltäglicher Fürsorge.",
+          presentationCopy3:
+            "Sie reagiert auch in Krisenzeiten, arbeitet mit Schulen und lokalen Einrichtungen zusammen und beteiligt sich an humanitären Einsätzen in Griechenland und im Ausland.",
+          letterEyebrow: "Unterstützungstext",
+          letterTitle: "Warum Apostoli Agapis unterstützen",
+          letterCopy1:
+            "Die Gruppe erhält keine staatlichen Mittel und ist vollständig auf die Großzügigkeit von Freiwilligen, Unterstützenden, Unternehmen und lokalen Gemeinschaften angewiesen.",
+          letterCopy2:
+            "Unterstützung kann in Form finanzieller Hilfe, Lebensmitteln, Kleidung und anderen Dingen des täglichen Bedarfs erfolgen, die direkt Familien und Menschen zugutekommen, die sie am meisten brauchen.",
+          letterCopy3:
+            "Jeder Beitrag stärkt die Mission und hilft der Gruppe, weiterhin Würde, Wärme und konkrete Unterstützung zu geben.",
           location: "Heraklion, Kreta",
           socialPage: "Seite",
           socialGroup: "Gruppe",
@@ -1217,6 +2229,7 @@
         },
       };
 
+      const page = document.querySelector(".page");
       const languageButtons = Array.from(document.querySelectorAll(".lang-btn"));
       const card = document.querySelector(".card");
       const messagePanel = document.getElementById("message-panel");
@@ -1224,6 +2237,7 @@
       const brandLine1 = document.getElementById("brand-line-1");
       const brandLine2 = document.getElementById("brand-line-2");
       const brandSubtitle = document.getElementById("brand-subtitle");
+      const visualLabel = document.querySelector(".visual-label");
       const currentLanguageLabel = document.getElementById("current-language-label");
       const currentLanguage = document.getElementById("current-language");
       const currentFlag = document.getElementById("current-flag");
@@ -1238,6 +2252,35 @@
       const socialPageLabel = document.getElementById("social-page-label");
       const socialGroupLabel = document.getElementById("social-group-label");
       const socialInstagramLabel = document.getElementById("social-instagram-label");
+      const aboutEyebrow = document.getElementById("about-eyebrow");
+      const aboutTitle = document.getElementById("about-title");
+      const aboutCopy1 = document.getElementById("about-copy-1");
+      const aboutCopy2 = document.getElementById("about-copy-2");
+      const impactEyebrow = document.getElementById("impact-eyebrow");
+      const impactTitle = document.getElementById("impact-title");
+      const impactIntro = document.getElementById("impact-intro");
+      const statValueElements = Array.from({ length: 6 }, (_, index) =>
+        document.getElementById(`stat-${index + 1}-value`)
+      );
+      const statLabelElements = Array.from({ length: 6 }, (_, index) =>
+        document.getElementById(`stat-${index + 1}-label`)
+      );
+      const supportEyebrow = document.getElementById("support-eyebrow");
+      const supportTitle = document.getElementById("support-title");
+      const supportCopy = document.getElementById("support-copy");
+      const supportItemElements = Array.from({ length: 3 }, (_, index) =>
+        document.getElementById(`support-item-${index + 1}`)
+      );
+      const supportFoot = document.getElementById("support-foot");
+      const docsEyebrow = document.getElementById("docs-eyebrow");
+      const docsTitle = document.getElementById("docs-title");
+      const docsCopy = document.getElementById("docs-copy");
+      const docPresentationLink = document.getElementById("doc-presentation-link");
+      const docSupportLink = document.getElementById("doc-support-link");
+      const docPdfTitle = document.getElementById("doc-pdf-title");
+      const docPdfMeta = document.getElementById("doc-pdf-meta");
+      const docLetterTitle = document.getElementById("doc-letter-title");
+      const docLetterMeta = document.getElementById("doc-letter-meta");
       const creditPrefix = document.getElementById("credit-prefix");
 
       let swapTimer = null;
@@ -1259,6 +2302,8 @@
           brandLine1.textContent = translation.brandLine1;
           brandLine2.textContent = translation.brandLine2;
           brandSubtitle.textContent = translation.brandSubtitle;
+          visualLabel.textContent = translation.visualLabel;
+          visualLabel.dataset.script = translation.script;
           currentLanguageLabel.textContent = translation.activeLabel;
           currentLanguage.textContent = translation.label;
           currentFlag.src = flagUrl(translation.flagCode);
@@ -1273,12 +2318,40 @@
           socialPageLabel.textContent = translation.socialPage;
           socialGroupLabel.textContent = translation.socialGroup;
           socialInstagramLabel.textContent = translation.socialInstagram;
+          aboutEyebrow.textContent = translation.aboutEyebrow;
+          aboutTitle.textContent = translation.aboutTitle;
+          aboutCopy1.textContent = translation.aboutCopy1;
+          aboutCopy2.textContent = translation.aboutCopy2;
+          impactEyebrow.textContent = translation.impactEyebrow;
+          impactTitle.textContent = translation.impactTitle;
+          impactIntro.textContent = translation.impactIntro;
+          translation.stats.forEach((stat, index) => {
+            statValueElements[index].textContent = stat.value;
+            statLabelElements[index].textContent = stat.label;
+          });
+          supportEyebrow.textContent = translation.supportEyebrow;
+          supportTitle.textContent = translation.supportTitle;
+          supportCopy.textContent = translation.supportCopy;
+          translation.supportItems.forEach((item, index) => {
+            supportItemElements[index].textContent = item;
+          });
+          supportFoot.textContent = translation.supportFoot;
+          docsEyebrow.textContent = translation.docsEyebrow;
+          docsTitle.textContent = translation.docsTitle;
+          docsCopy.textContent = translation.docsCopy;
+          docPdfTitle.textContent = translation.docPdfTitle;
+          docPdfMeta.textContent = translation.docPdfMeta;
+          docLetterTitle.textContent = translation.docLetterTitle;
+          docLetterMeta.textContent = translation.docLetterMeta;
+          docPresentationLink.href = `presentation.html?lang=${code}`;
+          docSupportLink.href = `support.html?lang=${code}`;
           creditPrefix.textContent = translation.creditPrefix;
 
           messagePanel.lang = translation.htmlLang;
           messagePanel.classList.toggle("rtl", translation.dir === "rtl");
           messagePanel.dataset.script = translation.script;
           card.classList.toggle("is-rtl", translation.dir === "rtl");
+          page.classList.toggle("is-rtl", translation.dir === "rtl");
 
           languageButtons.forEach((button) => {
             const isActive = button.dataset.lang === code;

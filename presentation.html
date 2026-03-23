@@ -1,0 +1,1068 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Apostoli Agapis | Group Presentation</title>
+    <meta
+      name="description"
+      content="Presentation of the Apostoli Agapis volunteer solidarity group."
+    />
+    <meta name="theme-color" content="#070707" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;700;800&family=Noto+Sans:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #070707;
+        --surface: rgba(16, 16, 16, 0.95);
+        --surface-soft: rgba(255, 255, 255, 0.04);
+        --text: #fff8f1;
+        --muted: rgba(255, 248, 241, 0.72);
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #ff3948;
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.07), transparent 18%),
+          radial-gradient(circle at 88% 0%, rgba(255, 57, 72, 0.2), transparent 24%),
+          linear-gradient(180deg, #181818 0%, #0a0a0a 44%, #050505 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .page {
+        width: min(1120px, calc(100% - 20px));
+        margin: 0 auto;
+        padding: 12px 0 28px;
+      }
+
+      .page.is-rtl {
+        direction: rtl;
+      }
+
+      .lang-strip {
+        position: sticky;
+        top: 10px;
+        z-index: 5;
+        display: flex;
+        direction: ltr;
+        gap: 6px;
+        width: max-content;
+        max-width: 100%;
+        margin: 0 auto 14px;
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(9, 9, 9, 0.8);
+        backdrop-filter: blur(18px);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .lang-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .lang-btn {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        cursor: pointer;
+      }
+
+      .lang-btn.is-active {
+        background: linear-gradient(180deg, var(--accent), #9f1018);
+        box-shadow: 0 14px 24px rgba(219, 22, 34, 0.28);
+      }
+
+      .flag-icon {
+        width: 18px;
+        height: 13px;
+        border-radius: 3px;
+        object-fit: cover;
+      }
+
+      .panel {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: var(--radius-xl);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02)),
+          linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(22, 22, 22, 0.96));
+        box-shadow: var(--shadow);
+      }
+
+      .hero {
+        padding: 22px;
+      }
+
+      .hero-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        margin-bottom: 18px;
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .hero-lang {
+        color: rgba(255, 248, 241, 0.82);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        color: rgba(255, 248, 241, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hero-title,
+      .section-title {
+        margin: 0;
+        font-family: "League Spartan", sans-serif;
+        line-height: 0.96;
+        text-transform: uppercase;
+      }
+
+      .hero-title {
+        font-size: clamp(2.1rem, 8vw, 4rem);
+      }
+
+      .hero-copy,
+      .section-copy,
+      .area-copy,
+      .stat-copy {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .hero-copy {
+        margin: 14px 0 0;
+        max-width: 62ch;
+        font-size: 15px;
+      }
+
+      .gallery {
+        margin-top: 18px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .gallery img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+      }
+
+      .content {
+        display: grid;
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .section-card {
+        padding: 20px;
+      }
+
+      .section-title {
+        font-size: clamp(1.7rem, 5vw, 2.5rem);
+      }
+
+      .section-copy {
+        margin: 14px 0 0;
+        font-size: 14px;
+      }
+
+      .areas-grid,
+      .stats-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .area-card,
+      .stat-card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--surface-soft);
+      }
+
+      .area-title {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .area-copy,
+      .stat-copy {
+        margin: 10px 0 0;
+        font-size: 13px;
+      }
+
+      .stat-value {
+        display: block;
+        color: var(--accent);
+        font-family: "League Spartan", sans-serif;
+        font-size: clamp(1.7rem, 7vw, 2.4rem);
+        line-height: 0.9;
+      }
+
+      .section-card[data-script="arabic"] {
+        font-family: "Noto Sans Arabic", "Noto Sans", sans-serif;
+      }
+
+      .section-card[data-script="korean"] {
+        font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+      }
+
+      .section-card[data-script="chinese"] {
+        font-family: "Noto Sans SC", "Noto Sans", sans-serif;
+      }
+
+      @media (min-width: 760px) {
+        .gallery {
+          grid-template-columns: 1.2fr 1fr 1fr;
+          grid-template-rows: 230px 230px;
+        }
+
+        .gallery img:first-child {
+          grid-row: span 2;
+        }
+
+        .areas-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="lang-strip" role="tablist" aria-label="Language selector">
+        <button class="lang-btn is-active" type="button" data-lang="en" aria-label="English" aria-pressed="true"><img class="flag-icon" src="https://flagcdn.com/w40/gb.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="el" aria-label="Ελληνικά" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/gr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="zh" aria-label="简体中文" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/cn.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="ko" aria-label="한국어" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/kr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="ar" aria-label="العربية" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/sa.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="es" aria-label="Español" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/es.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="fr" aria-label="Français" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/fr.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="it" aria-label="Italiano" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/it.png" alt="" aria-hidden="true" /></button>
+        <button class="lang-btn" type="button" data-lang="de" aria-label="Deutsch" aria-pressed="false"><img class="flag-icon" src="https://flagcdn.com/w40/de.png" alt="" aria-hidden="true" /></button>
+      </div>
+
+      <section class="panel hero">
+        <div class="hero-top">
+          <a class="back-link" id="back-link" href="index.html?lang=en">&larr; <span id="back-label">Home</span></a>
+          <div class="hero-lang" id="hero-language">English</div>
+        </div>
+        <p class="eyebrow" id="hero-eyebrow">Group presentation</p>
+        <h1 class="hero-title" id="hero-title">The story and work of Apostoli Agapis</h1>
+        <p class="hero-copy" id="hero-copy">
+          A closer look at the group, its mission, its fields of action and its
+          everyday impact.
+        </p>
+        <div class="gallery">
+          <img src="assets/pdf_images/page01_01_X7.jpg" alt="Apostoli Agapis volunteers together" />
+          <img src="assets/pdf_images/page01_07_X20.jpg" alt="Clothing support organized by the group" />
+          <img src="assets/pdf_images/page01_08_X21.jpg" alt="Volunteers preparing food together" />
+          <img src="assets/pdf_images/page02_04_X30.jpg" alt="School bag support for a child" />
+          <img src="assets/pdf_images/page02_09_X35.jpg" alt="Collage of group activities" />
+        </div>
+      </section>
+
+      <div class="content">
+        <section class="panel section-card" id="overview-card">
+          <p class="eyebrow" id="overview-eyebrow">Overview</p>
+          <h2 class="section-title" id="overview-title">Many years of practical solidarity</h2>
+          <p class="section-copy" id="overview-copy-1">
+            Apostoli Agapis brings together volunteers with deep experience in solidarity work and community support in Crete.
+          </p>
+          <p class="section-copy" id="overview-copy-2">
+            Its work reaches families, children, young parents and vulnerable people with practical care that answers everyday needs.
+          </p>
+          <p class="section-copy" id="overview-copy-3">
+            The group remains active in local life, emergency response and humanitarian action, always relying on volunteers and supporters.
+          </p>
+        </section>
+
+        <section class="panel section-card" id="areas-card">
+          <p class="eyebrow" id="areas-eyebrow">Fields of action</p>
+          <h2 class="section-title" id="areas-title">What the group does in practice</h2>
+          <div class="areas-grid">
+            <article class="area-card">
+              <h3 class="area-title" id="area-title-1">Monthly family support</h3>
+              <p class="area-copy" id="area-copy-1">Food, clothing and first-need items reach around 250 families every month.</p>
+            </article>
+            <article class="area-card">
+              <h3 class="area-title" id="area-title-2">Children and young parents</h3>
+              <p class="area-copy" id="area-copy-2">Children receive school supplies, activities and other support, while new parents receive baby essentials.</p>
+            </article>
+            <article class="area-card">
+              <h3 class="area-title" id="area-title-3">Homes and daily life</h3>
+              <p class="area-copy" id="area-copy-3">The group helps equip homes with furniture, appliances, blankets, bedding and other household items.</p>
+            </article>
+            <article class="area-card">
+              <h3 class="area-title" id="area-title-4">Crisis response</h3>
+              <p class="area-copy" id="area-copy-4">From quarantine meals to floods and earthquake relief, the team mobilizes quickly whenever a community is under pressure.</p>
+            </article>
+            <article class="area-card">
+              <h3 class="area-title" id="area-title-5">Humanitarian and community action</h3>
+              <p class="area-copy" id="area-copy-5">Its work also includes missions abroad, support for schools and institutions, and awareness actions around solidarity and social responsibility.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="panel section-card" id="stats-card">
+          <p class="eyebrow" id="stats-eyebrow">In numbers</p>
+          <h2 class="section-title" id="stats-title">Key numbers from the last five years</h2>
+          <div class="stats-grid">
+            <article class="stat-card">
+              <strong class="stat-value" id="stat-value-1">250</strong>
+              <p class="stat-copy" id="stat-copy-1">families every month receive support with food and clothing</p>
+            </article>
+            <article class="stat-card">
+              <strong class="stat-value" id="stat-value-2">500</strong>
+              <p class="stat-copy" id="stat-copy-2">children receive school supplies each year</p>
+            </article>
+            <article class="stat-card">
+              <strong class="stat-value" id="stat-value-3">350</strong>
+              <p class="stat-copy" id="stat-copy-3">families were equipped with furniture and appliances</p>
+            </article>
+            <article class="stat-card">
+              <strong class="stat-value" id="stat-value-4">18</strong>
+              <p class="stat-copy" id="stat-copy-4">people with disabilities received wheelchairs</p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script>
+      const translations = {
+        en: {
+          label: "English",
+          htmlLang: "en",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Group Presentation",
+          backLabel: "Home",
+          heroEyebrow: "Group presentation",
+          heroTitle: "The story and work of Apostoli Agapis",
+          heroCopy:
+            "A closer look at the group, its mission, its fields of action and its everyday impact.",
+          overviewEyebrow: "Overview",
+          overviewTitle: "Many years of practical solidarity",
+          overviewCopy1:
+            "Apostoli Agapis brings together volunteers with deep experience in solidarity work and community support in Crete.",
+          overviewCopy2:
+            "Its work reaches families, children, young parents and vulnerable people with practical care that answers everyday needs.",
+          overviewCopy3:
+            "The group remains active in local life, emergency response and humanitarian action, always relying on volunteers and supporters.",
+          areasEyebrow: "Fields of action",
+          areasTitle: "What the group does in practice",
+          areas: [
+            {
+              title: "Monthly family support",
+              copy: "Food, clothing and first-need items reach around 250 families every month.",
+            },
+            {
+              title: "Children and young parents",
+              copy: "Children receive school supplies, activities and other support, while new parents receive baby essentials.",
+            },
+            {
+              title: "Homes and daily life",
+              copy: "The group helps equip homes with furniture, appliances, blankets, bedding and other household items.",
+            },
+            {
+              title: "Crisis response",
+              copy: "From quarantine meals to floods and earthquake relief, the team mobilizes quickly whenever a community is under pressure.",
+            },
+            {
+              title: "Humanitarian and community action",
+              copy: "Its work also includes missions abroad, support for schools and institutions, and awareness actions around solidarity and social responsibility.",
+            },
+          ],
+          statsEyebrow: "In numbers",
+          statsTitle: "Key numbers from the last five years",
+          stats: [
+            {
+              value: "250",
+              copy: "families every month receive support with food and clothing",
+            },
+            {
+              value: "500",
+              copy: "children receive school supplies each year",
+            },
+            {
+              value: "350",
+              copy: "families were equipped with furniture and appliances",
+            },
+            {
+              value: "18",
+              copy: "people with disabilities received wheelchairs",
+            },
+          ],
+        },
+        el: {
+          label: "Ελληνικά",
+          htmlLang: "el",
+          dir: "ltr",
+          script: "greek",
+          title: "Αποστολή Αγάπης | Παρουσίαση Ομάδας",
+          backLabel: "Αρχική",
+          heroEyebrow: "Παρουσίαση ομάδας",
+          heroTitle: "Η ιστορία και το έργο της Αποστολής Αγάπης",
+          heroCopy:
+            "Μια πιο αναλυτική ματιά στην ομάδα, την αποστολή της, τους τομείς δράσης και την καθημερινή της προσφορά.",
+          overviewEyebrow: "Επισκόπηση",
+          overviewTitle: "Πολλά χρόνια έμπρακτης αλληλεγγύης",
+          overviewCopy1:
+            "Η Αποστολή Αγάπης ενώνει εθελοντές με βαθιά εμπειρία στην κοινωνική στήριξη και την αλληλεγγύη στην Κρήτη.",
+          overviewCopy2:
+            "Το έργο της φτάνει σε οικογένειες, παιδιά, νέους γονείς και ευάλωτους ανθρώπους με ουσιαστική φροντίδα για καθημερινές ανάγκες.",
+          overviewCopy3:
+            "Παραμένει ενεργή στην τοπική ζωή, στην αντιμετώπιση κρίσεων και σε ανθρωπιστικές δράσεις, πάντα με τη δύναμη των εθελοντών και των υποστηρικτών.",
+          areasEyebrow: "Τομείς δράσης",
+          areasTitle: "Τι κάνει η ομάδα στην πράξη",
+          areas: [
+            {
+              title: "Μηνιαία στήριξη οικογενειών",
+              copy: "Τρόφιμα, ρούχα και είδη πρώτης ανάγκης φτάνουν περίπου σε 250 οικογένειες κάθε μήνα.",
+            },
+            {
+              title: "Παιδιά και νέοι γονείς",
+              copy: "Τα παιδιά λαμβάνουν σχολικά είδη και άλλες ευκαιρίες στήριξης, ενώ οι νέοι γονείς προμηθεύονται βρεφικά απαραίτητα.",
+            },
+            {
+              title: "Σπίτι και καθημερινότητα",
+              copy: "Η ομάδα βοηθά να εξοπλιστούν σπίτια με έπιπλα, συσκευές, κουβέρτες, κλινοσκεπάσματα και άλλα είδη νοικοκυριού.",
+            },
+            {
+              title: "Δράση σε περιόδους κρίσης",
+              copy: "Από συσσίτια στην καραντίνα μέχρι πλημμύρες και σεισμούς, η ομάδα κινητοποιείται γρήγορα όπου υπάρχει ανάγκη.",
+            },
+            {
+              title: "Ανθρωπιστική και κοινωνική παρουσία",
+              copy: "Η δράση περιλαμβάνει και αποστολές εκτός Ελλάδας, συνεργασίες με σχολεία και φορείς, καθώς και ενέργειες ευαισθητοποίησης για την αλληλεγγύη.",
+            },
+          ],
+          statsEyebrow: "Σε αριθμούς",
+          statsTitle: "Βασικά νούμερα από τα τελευταία πέντε χρόνια",
+          stats: [
+            {
+              value: "250",
+              copy: "οικογένειες κάθε μήνα λαμβάνουν στήριξη με τρόφιμα και ρούχα",
+            },
+            {
+              value: "500",
+              copy: "παιδιά λαμβάνουν σχολικά είδη κάθε χρόνο",
+            },
+            {
+              value: "350",
+              copy: "οικογένειες εξοπλίστηκαν με έπιπλα και συσκευές",
+            },
+            {
+              value: "18",
+              copy: "άτομα ΑμεΑ προμηθεύτηκαν αναπηρικά αμαξίδια",
+            },
+          ],
+        },
+        zh: {
+          label: "简体中文",
+          htmlLang: "zh-Hans",
+          dir: "ltr",
+          script: "chinese",
+          title: "Apostoli Agapis | 团队介绍",
+          backLabel: "首页",
+          heroEyebrow: "团队介绍",
+          heroTitle: "Apostoli Agapis 的故事与工作",
+          heroCopy:
+            "更深入地了解这个团队、它的使命、行动领域以及日常影响。",
+          overviewEyebrow: "概览",
+          overviewTitle: "多年的实际互助经验",
+          overviewCopy1:
+            "Apostoli Agapis 汇聚了在克里特岛长期从事互助与社区支持的志愿者。",
+          overviewCopy2:
+            "它的工作触及家庭、儿童、年轻父母以及脆弱群体，以切实关怀回应日常需要。",
+          overviewCopy3:
+            "团队始终活跃于本地生活、危机应对和人道行动，并持续依靠志愿者与支持者的力量。",
+          areasEyebrow: "行动领域",
+          areasTitle: "团队在实践中做什么",
+          areas: [
+            {
+              title: "每月家庭支持",
+              copy: "食品、衣物和基本生活用品每月送达约 250 个家庭。",
+            },
+            {
+              title: "儿童与年轻父母",
+              copy: "儿童获得学习用品和其他支持机会，年轻父母也会获得婴儿必需品。",
+            },
+            {
+              title: "家庭与日常生活",
+              copy: "团队帮助家庭获得家具、电器、毯子、床品和其他家居用品。",
+            },
+            {
+              title: "危机应对",
+              copy: "从隔离期间的供餐到洪灾和地震救助，只要社区承压，团队都会迅速行动。",
+            },
+            {
+              title: "人道与社区行动",
+              copy: "团队也参与境外任务、学校与机构合作，以及围绕互助与社会责任的倡导行动。",
+            },
+          ],
+          statsEyebrow: "数据",
+          statsTitle: "过去五年的关键数字",
+          stats: [
+            {
+              value: "250",
+              copy: "个家庭每月收到食品和衣物支持",
+            },
+            {
+              value: "500",
+              copy: "名儿童每年获得学习用品",
+            },
+            {
+              value: "350",
+              copy: "个家庭获得家具和电器",
+            },
+            {
+              value: "18",
+              copy: "名残障人士获得轮椅",
+            },
+          ],
+        },
+        ko: {
+          label: "한국어",
+          htmlLang: "ko",
+          dir: "ltr",
+          script: "korean",
+          title: "Apostoli Agapis | 단체 소개",
+          backLabel: "홈",
+          heroEyebrow: "단체 소개",
+          heroTitle: "Apostoli Agapis의 이야기와 활동",
+          heroCopy:
+            "이 단체의 사명, 활동 분야, 그리고 일상적인 영향력을 더 자세히 살펴봅니다.",
+          overviewEyebrow: "개요",
+          overviewTitle: "오랜 시간 이어진 실질적 연대",
+          overviewCopy1:
+            "Apostoli Agapis는 크레타에서 오랫동안 연대와 지역 지원 활동을 해 온 자원봉사자들을 하나로 모읍니다.",
+          overviewCopy2:
+            "그 활동은 가족, 어린이, 젊은 부모, 취약한 이웃에게 닿으며 일상의 필요를 실제로 돌봅니다.",
+          overviewCopy3:
+            "단체는 자원봉사자와 후원자의 힘으로 지역사회, 위기 대응, 인도주의 활동 속에서 계속 움직이고 있습니다.",
+          areasEyebrow: "활동 분야",
+          areasTitle: "단체가 실제로 하는 일",
+          areas: [
+            {
+              title: "매월 가족 지원",
+              copy: "식료품, 의류, 생필품이 매달 약 250가정에 전달됩니다.",
+            },
+            {
+              title: "어린이와 젊은 부모",
+              copy: "어린이들은 학용품과 여러 지원 기회를 받고, 젊은 부모들은 아기용 필수품을 지원받습니다.",
+            },
+            {
+              title: "가정과 일상",
+              copy: "가구, 가전제품, 담요, 침구류와 기타 생활용품으로 가정을 꾸릴 수 있도록 돕습니다.",
+            },
+            {
+              title: "위기 대응",
+              copy: "격리 기간 식사 제공부터 홍수와 지진 구호까지, 공동체가 압박을 받을 때마다 빠르게 움직입니다.",
+            },
+            {
+              title: "인도주의와 지역 활동",
+              copy: "해외 임무, 학교와 기관 지원, 연대와 사회적 책임에 관한 인식 제고 활동도 포함됩니다.",
+            },
+          ],
+          statsEyebrow: "숫자로 보기",
+          statsTitle: "지난 5년간의 핵심 수치",
+          stats: [
+            {
+              value: "250",
+              copy: "가정이 매달 식료품과 의류 지원을 받습니다",
+            },
+            {
+              value: "500",
+              copy: "명의 어린이가 매년 학용품을 받습니다",
+            },
+            {
+              value: "350",
+              copy: "가정이 가구와 가전제품을 지원받았습니다",
+            },
+            {
+              value: "18",
+              copy: "명의 장애인이 휠체어를 지원받았습니다",
+            },
+          ],
+        },
+        ar: {
+          label: "العربية",
+          htmlLang: "ar",
+          dir: "rtl",
+          script: "arabic",
+          title: "Apostoli Agapis | عرض المجموعة",
+          backLabel: "الرئيسية",
+          heroEyebrow: "عرض المجموعة",
+          heroTitle: "قصة بعثة المحبة وعملها",
+          heroCopy:
+            "نظرة أعمق إلى المجموعة ورسالتها ومجالات عملها وأثرها اليومي.",
+          overviewEyebrow: "نظرة عامة",
+          overviewTitle: "سنوات طويلة من التضامن العملي",
+          overviewCopy1:
+            "تجمع بعثة المحبة متطوعين لديهم خبرة واسعة في العمل التضامني والدعم المجتمعي في كريت.",
+          overviewCopy2:
+            "يصل عملها إلى العائلات والأطفال والآباء الجدد والأشخاص الأكثر هشاشة، من خلال رعاية عملية تستجيب للاحتياجات اليومية.",
+          overviewCopy3:
+            "وتبقى المجموعة حاضرة في الحياة المحلية، والاستجابة للأزمات، والعمل الإنساني، بالاعتماد الدائم على المتطوعين والداعمين.",
+          areasEyebrow: "مجالات العمل",
+          areasTitle: "ما الذي تقوم به المجموعة عملياً",
+          areas: [
+            {
+              title: "دعم العائلات شهرياً",
+              copy: "تصل المواد الغذائية والملابس والاحتياجات الأساسية إلى نحو 250 عائلة كل شهر.",
+            },
+            {
+              title: "الأطفال والآباء الجدد",
+              copy: "يحصل الأطفال على مستلزمات مدرسية وفرص دعم أخرى، بينما يحصل الآباء الجدد على مستلزمات أساسية للأطفال الرضع.",
+            },
+            {
+              title: "المنزل والحياة اليومية",
+              copy: "تساعد المجموعة في تجهيز المنازل بالأثاث والأجهزة والبطانيات وأغطية الأسرة وغيرها من مستلزمات البيت.",
+            },
+            {
+              title: "الاستجابة للأزمات",
+              copy: "من الوجبات خلال فترات الحجر إلى الإغاثة في الفيضانات والزلازل، تتحرك المجموعة بسرعة كلما تعرض مجتمع ما للضغط.",
+            },
+            {
+              title: "العمل الإنساني والمجتمعي",
+              copy: "يشمل العمل أيضاً مهمات خارج البلاد، ودعم المدارس والمؤسسات، وأنشطة توعية حول التضامن والمسؤولية الاجتماعية.",
+            },
+          ],
+          statsEyebrow: "بالأرقام",
+          statsTitle: "أرقام أساسية من السنوات الخمس الأخيرة",
+          stats: [
+            {
+              value: "250",
+              copy: "عائلة تتلقى كل شهر دعماً بالغذاء والملابس",
+            },
+            {
+              value: "500",
+              copy: "طفل يحصل على مستلزمات مدرسية كل عام",
+            },
+            {
+              value: "350",
+              copy: "عائلة حصلت على أثاث وأجهزة منزلية",
+            },
+            {
+              value: "18",
+              copy: "شخصاً من ذوي الإعاقة حصلوا على كراسٍ متحركة",
+            },
+          ],
+        },
+        es: {
+          label: "Español",
+          htmlLang: "es",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Presentación del grupo",
+          backLabel: "Inicio",
+          heroEyebrow: "Presentación del grupo",
+          heroTitle: "La historia y el trabajo de Apostoli Agapis",
+          heroCopy:
+            "Una mirada más completa al grupo, su misión, sus áreas de acción y su impacto cotidiano.",
+          overviewEyebrow: "Resumen",
+          overviewTitle: "Muchos años de solidaridad práctica",
+          overviewCopy1:
+            "Apostoli Agapis reúne a voluntarios con amplia experiencia en trabajo solidario y apoyo comunitario en Creta.",
+          overviewCopy2:
+            "Su labor llega a familias, niños, padres jóvenes y personas vulnerables con un cuidado práctico para las necesidades de cada día.",
+          overviewCopy3:
+            "El grupo sigue activo en la vida local, en la respuesta a emergencias y en acciones humanitarias, siempre con el apoyo de voluntarios y colaboradores.",
+          areasEyebrow: "Áreas de acción",
+          areasTitle: "Qué hace el grupo en la práctica",
+          areas: [
+            {
+              title: "Apoyo mensual a familias",
+              copy: "Alimentos, ropa y productos básicos llegan cada mes a unas 250 familias.",
+            },
+            {
+              title: "Niños y padres jóvenes",
+              copy: "Los niños reciben material escolar y otras formas de apoyo, mientras que los padres jóvenes reciben artículos esenciales para bebés.",
+            },
+            {
+              title: "Hogar y vida diaria",
+              copy: "El grupo ayuda a equipar hogares con muebles, electrodomésticos, mantas, ropa de cama y otros artículos domésticos.",
+            },
+            {
+              title: "Respuesta en crisis",
+              copy: "Desde comidas durante la cuarentena hasta ayuda por inundaciones y terremotos, el equipo se moviliza rápidamente cuando una comunidad está bajo presión.",
+            },
+            {
+              title: "Acción humanitaria y comunitaria",
+              copy: "Su trabajo también incluye misiones en el extranjero, apoyo a escuelas e instituciones y acciones de sensibilización sobre solidaridad y responsabilidad social.",
+            },
+          ],
+          statsEyebrow: "En cifras",
+          statsTitle: "Cifras clave de los últimos cinco años",
+          stats: [
+            {
+              value: "250",
+              copy: "familias reciben cada mes apoyo con alimentos y ropa",
+            },
+            {
+              value: "500",
+              copy: "niños reciben material escolar cada año",
+            },
+            {
+              value: "350",
+              copy: "familias fueron equipadas con muebles y electrodomésticos",
+            },
+            {
+              value: "18",
+              copy: "personas con discapacidad recibieron sillas de ruedas",
+            },
+          ],
+        },
+        fr: {
+          label: "Français",
+          htmlLang: "fr",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Présentation du groupe",
+          backLabel: "Accueil",
+          heroEyebrow: "Présentation du groupe",
+          heroTitle: "L'histoire et le travail d'Apostoli Agapis",
+          heroCopy:
+            "Un regard plus approfondi sur le groupe, sa mission, ses champs d'action et son impact au quotidien.",
+          overviewEyebrow: "Aperçu",
+          overviewTitle: "De nombreuses années de solidarité concrète",
+          overviewCopy1:
+            "Apostoli Agapis réunit des bénévoles ayant une grande expérience du travail solidaire et du soutien communautaire en Crète.",
+          overviewCopy2:
+            "Son action rejoint les familles, les enfants, les jeunes parents et les personnes vulnérables avec une aide concrète pour les besoins de chaque jour.",
+          overviewCopy3:
+            "Le groupe reste actif dans la vie locale, la réponse aux urgences et les actions humanitaires, toujours grâce aux bénévoles et aux soutiens.",
+          areasEyebrow: "Champs d'action",
+          areasTitle: "Ce que fait le groupe en pratique",
+          areas: [
+            {
+              title: "Soutien mensuel aux familles",
+              copy: "Des denrées, des vêtements et des produits essentiels parviennent chaque mois à environ 250 familles.",
+            },
+            {
+              title: "Enfants et jeunes parents",
+              copy: "Les enfants reçoivent des fournitures scolaires et d'autres formes de soutien, tandis que les jeunes parents reçoivent des articles essentiels pour bébés.",
+            },
+            {
+              title: "Maison et vie quotidienne",
+              copy: "Le groupe aide à équiper les foyers en meubles, appareils, couvertures, linge de lit et autres articles domestiques.",
+            },
+            {
+              title: "Réponse aux crises",
+              copy: "Des repas pendant la quarantaine à l'aide après les inondations et les séismes, l'équipe se mobilise rapidement lorsqu'une communauté est sous pression.",
+            },
+            {
+              title: "Action humanitaire et communautaire",
+              copy: "Son travail comprend aussi des missions à l'étranger, le soutien aux écoles et institutions, et des actions de sensibilisation autour de la solidarité et de la responsabilité sociale.",
+            },
+          ],
+          statsEyebrow: "En chiffres",
+          statsTitle: "Chiffres clés des cinq dernières années",
+          stats: [
+            {
+              value: "250",
+              copy: "familles reçoivent chaque mois une aide alimentaire et vestimentaire",
+            },
+            {
+              value: "500",
+              copy: "enfants reçoivent des fournitures scolaires chaque année",
+            },
+            {
+              value: "350",
+              copy: "familles ont été équipées en meubles et appareils",
+            },
+            {
+              value: "18",
+              copy: "personnes en situation de handicap ont reçu un fauteuil roulant",
+            },
+          ],
+        },
+        it: {
+          label: "Italiano",
+          htmlLang: "it",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Presentazione del gruppo",
+          backLabel: "Home",
+          heroEyebrow: "Presentazione del gruppo",
+          heroTitle: "La storia e il lavoro di Apostoli Agapis",
+          heroCopy:
+            "Uno sguardo più ampio sul gruppo, sulla sua missione, sui suoi ambiti di azione e sul suo impatto quotidiano.",
+          overviewEyebrow: "Panoramica",
+          overviewTitle: "Molti anni di solidarietà concreta",
+          overviewCopy1:
+            "Apostoli Agapis riunisce volontari con una forte esperienza nel lavoro solidale e nel sostegno alla comunità a Creta.",
+          overviewCopy2:
+            "Il suo lavoro raggiunge famiglie, bambini, giovani genitori e persone vulnerabili con una cura concreta per i bisogni di ogni giorno.",
+          overviewCopy3:
+            "Il gruppo resta attivo nella vita locale, nella risposta alle emergenze e nelle azioni umanitarie, sempre grazie a volontari e sostenitori.",
+          areasEyebrow: "Ambiti di azione",
+          areasTitle: "Cosa fa il gruppo nella pratica",
+          areas: [
+            {
+              title: "Sostegno mensile alle famiglie",
+              copy: "Cibo, vestiti e beni essenziali arrivano ogni mese a circa 250 famiglie.",
+            },
+            {
+              title: "Bambini e giovani genitori",
+              copy: "I bambini ricevono materiale scolastico e altre forme di supporto, mentre i giovani genitori ricevono beni essenziali per i neonati.",
+            },
+            {
+              title: "Casa e vita quotidiana",
+              copy: "Il gruppo aiuta a equipaggiare le case con mobili, elettrodomestici, coperte, biancheria da letto e altri articoli domestici.",
+            },
+            {
+              title: "Risposta alle crisi",
+              copy: "Dai pasti durante la quarantena all'aiuto per alluvioni e terremoti, il team si mobilita rapidamente quando una comunità è sotto pressione.",
+            },
+            {
+              title: "Azione umanitaria e comunitaria",
+              copy: "Il lavoro comprende anche missioni all'estero, sostegno a scuole e istituzioni e azioni di sensibilizzazione sulla solidarietà e la responsabilità sociale.",
+            },
+          ],
+          statsEyebrow: "In numeri",
+          statsTitle: "Numeri chiave degli ultimi cinque anni",
+          stats: [
+            {
+              value: "250",
+              copy: "famiglie ricevono ogni mese sostegno con cibo e vestiti",
+            },
+            {
+              value: "500",
+              copy: "bambini ricevono materiale scolastico ogni anno",
+            },
+            {
+              value: "350",
+              copy: "famiglie hanno ricevuto mobili ed elettrodomestici",
+            },
+            {
+              value: "18",
+              copy: "persone con disabilità hanno ricevuto sedie a rotelle",
+            },
+          ],
+        },
+        de: {
+          label: "Deutsch",
+          htmlLang: "de",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Vorstellung der Gruppe",
+          backLabel: "Start",
+          heroEyebrow: "Vorstellung der Gruppe",
+          heroTitle: "Die Geschichte und Arbeit von Apostoli Agapis",
+          heroCopy:
+            "Ein ausführlicherer Blick auf die Gruppe, ihre Mission, ihre Arbeitsfelder und ihre tägliche Wirkung.",
+          overviewEyebrow: "Überblick",
+          overviewTitle: "Viele Jahre gelebte Solidarität",
+          overviewCopy1:
+            "Apostoli Agapis vereint Freiwillige mit großer Erfahrung in solidarischer Arbeit und Gemeinschaftsunterstützung auf Kreta.",
+          overviewCopy2:
+            "Die Arbeit erreicht Familien, Kinder, junge Eltern und verletzliche Menschen mit konkreter Hilfe für die Bedürfnisse des Alltags.",
+          overviewCopy3:
+            "Die Gruppe bleibt im lokalen Leben, in der Notfallhilfe und in humanitären Einsätzen aktiv und stützt sich dabei immer auf Freiwillige und Unterstützende.",
+          areasEyebrow: "Arbeitsfelder",
+          areasTitle: "Was die Gruppe praktisch tut",
+          areas: [
+            {
+              title: "Monatliche Familienhilfe",
+              copy: "Lebensmittel, Kleidung und wichtige Grundbedarfsartikel erreichen jeden Monat etwa 250 Familien.",
+            },
+            {
+              title: "Kinder und junge Eltern",
+              copy: "Kinder erhalten Schulmaterial und weitere Unterstützung, während junge Eltern Babyartikel und Grundausstattung bekommen.",
+            },
+            {
+              title: "Zuhause und Alltag",
+              copy: "Die Gruppe hilft, Wohnungen mit Möbeln, Geräten, Decken, Bettwäsche und weiteren Haushaltsartikeln auszustatten.",
+            },
+            {
+              title: "Krisenhilfe",
+              copy: "Von Mahlzeiten während der Quarantäne bis zu Hilfe bei Überschwemmungen und Erdbeben mobilisiert sich das Team schnell, wenn eine Gemeinschaft unter Druck steht.",
+            },
+            {
+              title: "Humanitäre und gesellschaftliche Arbeit",
+              copy: "Dazu gehören auch Einsätze im Ausland, Unterstützung für Schulen und Einrichtungen sowie Aktionen zur Sensibilisierung für Solidarität und soziale Verantwortung.",
+            },
+          ],
+          statsEyebrow: "In Zahlen",
+          statsTitle: "Wichtige Zahlen der letzten fünf Jahre",
+          stats: [
+            {
+              value: "250",
+              copy: "Familien erhalten jeden Monat Unterstützung mit Lebensmitteln und Kleidung",
+            },
+            {
+              value: "500",
+              copy: "Kinder erhalten jedes Jahr Schulmaterial",
+            },
+            {
+              value: "350",
+              copy: "Familien wurden mit Möbeln und Geräten ausgestattet",
+            },
+            {
+              value: "18",
+              copy: "Menschen mit Behinderung erhielten Rollstühle",
+            },
+          ],
+        },
+      };
+
+      const page = document.querySelector(".page");
+      const buttons = Array.from(document.querySelectorAll(".lang-btn"));
+      const backLink = document.getElementById("back-link");
+      const backLabel = document.getElementById("back-label");
+      const heroLanguage = document.getElementById("hero-language");
+      const heroEyebrow = document.getElementById("hero-eyebrow");
+      const heroTitle = document.getElementById("hero-title");
+      const heroCopy = document.getElementById("hero-copy");
+      const overviewCard = document.getElementById("overview-card");
+      const areasCard = document.getElementById("areas-card");
+      const statsCard = document.getElementById("stats-card");
+      const overviewEyebrow = document.getElementById("overview-eyebrow");
+      const overviewTitle = document.getElementById("overview-title");
+      const overviewCopy1 = document.getElementById("overview-copy-1");
+      const overviewCopy2 = document.getElementById("overview-copy-2");
+      const overviewCopy3 = document.getElementById("overview-copy-3");
+      const areasEyebrow = document.getElementById("areas-eyebrow");
+      const areasTitle = document.getElementById("areas-title");
+      const areaTitleElements = Array.from({ length: 5 }, (_, index) =>
+        document.getElementById(`area-title-${index + 1}`)
+      );
+      const areaCopyElements = Array.from({ length: 5 }, (_, index) =>
+        document.getElementById(`area-copy-${index + 1}`)
+      );
+      const statsEyebrow = document.getElementById("stats-eyebrow");
+      const statsTitle = document.getElementById("stats-title");
+      const statValueElements = Array.from({ length: 4 }, (_, index) =>
+        document.getElementById(`stat-value-${index + 1}`)
+      );
+      const statCopyElements = Array.from({ length: 4 }, (_, index) =>
+        document.getElementById(`stat-copy-${index + 1}`)
+      );
+
+      function syncUrl(code) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", code);
+        window.history.replaceState({}, "", url);
+      }
+
+      function applyLanguage(code, updateUrl = true) {
+        const translation = translations[code] || translations.en;
+
+        document.documentElement.lang = translation.htmlLang;
+        document.documentElement.dir = translation.dir;
+        document.title = translation.title;
+        page.classList.toggle("is-rtl", translation.dir === "rtl");
+        heroLanguage.textContent = translation.label;
+        backLabel.textContent = translation.backLabel;
+        backLink.href = `index.html?lang=${code}`;
+        heroEyebrow.textContent = translation.heroEyebrow;
+        heroTitle.textContent = translation.heroTitle;
+        heroCopy.textContent = translation.heroCopy;
+        overviewEyebrow.textContent = translation.overviewEyebrow;
+        overviewTitle.textContent = translation.overviewTitle;
+        overviewCopy1.textContent = translation.overviewCopy1;
+        overviewCopy2.textContent = translation.overviewCopy2;
+        overviewCopy3.textContent = translation.overviewCopy3;
+        areasEyebrow.textContent = translation.areasEyebrow;
+        areasTitle.textContent = translation.areasTitle;
+        translation.areas.forEach((item, index) => {
+          areaTitleElements[index].textContent = item.title;
+          areaCopyElements[index].textContent = item.copy;
+        });
+        statsEyebrow.textContent = translation.statsEyebrow;
+        statsTitle.textContent = translation.statsTitle;
+        translation.stats.forEach((item, index) => {
+          statValueElements[index].textContent = item.value;
+          statCopyElements[index].textContent = item.copy;
+        });
+
+        [overviewCard, areasCard, statsCard].forEach((card) => {
+          card.dataset.script = translation.script;
+        });
+
+        buttons.forEach((button) => {
+          const isActive = button.dataset.lang === code;
+          button.classList.toggle("is-active", isActive);
+          button.setAttribute("aria-pressed", isActive ? "true" : "false");
+        });
+
+        if (updateUrl) {
+          syncUrl(code);
+        }
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.dataset.lang, true));
+      });
+
+      const initialLanguage =
+        new URL(window.location.href).searchParams.get("lang") || "en";
+
+      applyLanguage(initialLanguage, false);
+    </script>
+  </body>
+</html>
