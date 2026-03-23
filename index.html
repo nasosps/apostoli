@@ -1,0 +1,1299 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Apostoli Agapis | Welcome</title>
+    <meta
+      name="description"
+      content="A compact multilingual welcome page for Apostoli Agapis, the Mission of Love volunteer solidarity group of Crete."
+    />
+    <meta name="theme-color" content="#070707" />
+    <link rel="icon" type="image/jpeg" href="logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=League+Spartan:wght@500;700;800&family=Noto+Sans:wght@400;500;700;900&family=Noto+Sans+Arabic:wght@400;500;700;800&family=Noto+Sans+KR:wght@400;500;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #050505;
+        --bg-soft: #121212;
+        --surface: rgba(11, 11, 11, 0.9);
+        --surface-strong: rgba(18, 18, 18, 0.96);
+        --paper: #f6f1eb;
+        --paper-soft: #ebe4da;
+        --text: #fff8f1;
+        --muted: rgba(255, 248, 241, 0.72);
+        --line: rgba(255, 255, 255, 0.12);
+        --accent: #db1622;
+        --accent-strong: #ff3948;
+        --accent-soft: rgba(219, 22, 34, 0.2);
+        --shadow: 0 28px 80px rgba(0, 0, 0, 0.46);
+        --shadow-soft: 0 16px 38px rgba(0, 0, 0, 0.22);
+        --radius-xl: 34px;
+        --radius-lg: 26px;
+        --radius-md: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Noto Sans", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.08), transparent 18%),
+          radial-gradient(circle at 82% 0%, rgba(219, 22, 34, 0.24), transparent 22%),
+          radial-gradient(circle at 50% 120%, rgba(219, 22, 34, 0.18), transparent 28%),
+          linear-gradient(180deg, #141414 0%, #070707 42%, #050505 100%);
+        overflow-x: hidden;
+      }
+
+      body::before,
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+      }
+
+      body::before {
+        background:
+          linear-gradient(
+            120deg,
+            transparent 0%,
+            transparent 44%,
+            rgba(255, 255, 255, 0.02) 50%,
+            transparent 56%,
+            transparent 100%
+          );
+        opacity: 0.6;
+        mix-blend-mode: screen;
+      }
+
+      body::after {
+        background-image:
+          radial-gradient(rgba(255, 255, 255, 0.07) 0.7px, transparent 0.7px);
+        background-size: 18px 18px;
+        opacity: 0.14;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 16px 12px 28px;
+      }
+
+      .lang-strip {
+        position: sticky;
+        top: 10px;
+        z-index: 5;
+        display: flex;
+        gap: 6px;
+        width: min(404px, 100%);
+        padding: 7px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(9, 9, 9, 0.76);
+        backdrop-filter: blur(18px);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .lang-strip::-webkit-scrollbar {
+        display: none;
+      }
+
+      .lang-btn {
+        flex: 0 0 auto;
+        display: grid;
+        place-items: center;
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        cursor: pointer;
+        transition:
+          transform 0.18s ease,
+          border-color 0.18s ease,
+          background 0.18s ease,
+          box-shadow 0.18s ease;
+      }
+
+      .lang-btn:hover,
+      .lang-btn:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.28);
+        outline: none;
+      }
+
+      .lang-btn.is-active {
+        background: linear-gradient(180deg, var(--accent-strong), #9f1018);
+        border-color: rgba(255, 255, 255, 0.24);
+        box-shadow: 0 14px 24px rgba(219, 22, 34, 0.32);
+        transform: translateY(-1px) scale(1.03);
+      }
+
+      .flag-icon {
+        display: block;
+        width: 18px;
+        height: 13px;
+        object-fit: cover;
+        border-radius: 3px;
+        box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.14);
+      }
+
+      .flag-icon-lg {
+        width: 22px;
+        height: 16px;
+        border-radius: 4px;
+      }
+
+      .shell {
+        width: min(960px, 100%);
+      }
+
+      .card {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-xl);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+          linear-gradient(135deg, rgba(10, 10, 10, 0.98), rgba(21, 21, 21, 0.96));
+        box-shadow: var(--shadow);
+      }
+
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .card::before {
+        top: -88px;
+        right: -76px;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(219, 22, 34, 0.46), transparent 68%);
+        filter: blur(4px);
+      }
+
+      .card::after {
+        inset: auto auto 18% -20%;
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.08), transparent 66%);
+      }
+
+      .ribbon {
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(255, 255, 255, 0.2) 8%,
+          var(--accent) 36%,
+          var(--accent-strong) 58%,
+          rgba(255, 255, 255, 0.82) 100%
+        );
+      }
+
+      .card-inner {
+        position: relative;
+        z-index: 1;
+        padding: 18px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .top-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 10px 16px;
+      }
+
+      .brand {
+        flex: 1 1 280px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-width: 0;
+      }
+
+      .logo-badge {
+        flex: 0 0 auto;
+        width: 76px;
+        height: 76px;
+        padding: 10px;
+        border-radius: 24px;
+        background: linear-gradient(180deg, #ffffff, #eee7de);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.85),
+          var(--shadow-soft);
+      }
+
+      .logo-badge img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .eyebrow {
+        margin: 0 0 4px;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+      }
+
+      .brand-title {
+        margin: 0;
+        font-family: "League Spartan", sans-serif;
+        font-size: clamp(2.2rem, 9vw, 3.4rem);
+        line-height: 0.88;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+
+      .brand-title span {
+        display: block;
+      }
+
+      .brand-title .accent-word {
+        color: var(--accent-strong);
+      }
+
+      .brand-subtitle {
+        margin: 9px 0 0;
+        max-width: 30ch;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .lang-pill {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        white-space: nowrap;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      }
+
+      .lang-pill-flag {
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .lang-pill-copy {
+        display: grid;
+        gap: 1px;
+      }
+
+      .lang-pill-copy small {
+        color: rgba(255, 255, 255, 0.48);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .lang-pill-copy strong {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .body-grid {
+        display: grid;
+        gap: 16px;
+        grid-template-areas:
+          "message"
+          "visual";
+      }
+
+      .visual-panel {
+        grid-area: visual;
+        position: relative;
+        overflow: hidden;
+        border-radius: 28px;
+        padding: 14px;
+        background:
+          radial-gradient(circle at 82% 12%, rgba(219, 22, 34, 0.16), transparent 26%),
+          linear-gradient(180deg, var(--paper) 0%, var(--paper-soft) 100%);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
+      }
+
+      .visual-panel::after {
+        content: "";
+        position: absolute;
+        inset: auto -52px -66px auto;
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(219, 22, 34, 0.18), transparent 72%);
+      }
+
+      .visual-frame {
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+        border-radius: 22px;
+        background: #ffffff;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        aspect-ratio: 11 / 9;
+      }
+
+      .visual-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .message-panel {
+        grid-area: message;
+        position: relative;
+        padding: 20px;
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.05),
+          0 14px 30px rgba(0, 0, 0, 0.14);
+        transition:
+          opacity 0.16s ease,
+          transform 0.16s ease;
+      }
+
+      .message-panel.is-swapping {
+        opacity: 0.22;
+        transform: translateY(6px);
+      }
+
+      .message-panel.rtl {
+        direction: rtl;
+        text-align: right;
+      }
+
+      .card.is-rtl .brand-copy,
+      .card.is-rtl .lang-pill-copy,
+      .card.is-rtl .credit {
+        text-align: right;
+      }
+
+      .card.is-rtl .message-meta {
+        flex-direction: row-reverse;
+      }
+
+      .message-panel[data-script="arabic"] {
+        font-family: "Noto Sans Arabic", "Noto Sans", sans-serif;
+      }
+
+      .message-panel[data-script="korean"] {
+        font-family: "Noto Sans KR", "Noto Sans", sans-serif;
+      }
+
+      .message-panel[data-script="chinese"] {
+        font-family: "Noto Sans SC", "Noto Sans", sans-serif;
+      }
+
+      .message-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .message-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(219, 22, 34, 0.24);
+        background: rgba(219, 22, 34, 0.12);
+        color: #ffd7db;
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .message-chip span {
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+      }
+
+      .message-note {
+        color: rgba(255, 255, 255, 0.54);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .greeting {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 8vw, 3rem);
+        line-height: 0.95;
+        font-weight: 900;
+        text-wrap: balance;
+      }
+
+      .message-line {
+        margin: 0;
+        color: var(--text);
+        font-size: clamp(1rem, 4.15vw, 1.08rem);
+        line-height: 1.68;
+        text-wrap: pretty;
+      }
+
+      .message-line + .message-line {
+        margin-top: 12px;
+      }
+
+      .message-line.is-final {
+        color: rgba(255, 248, 241, 0.9);
+        font-weight: 700;
+      }
+
+      .bottom-row {
+        display: grid;
+        gap: 10px;
+      }
+
+      .location-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        width: fit-content;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 248, 241, 0.88);
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .location-pill::before {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--accent-strong);
+        box-shadow: 0 0 0 4px rgba(219, 22, 34, 0.14);
+      }
+
+      .social-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .social-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 52px;
+        padding: 12px 10px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--text);
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition:
+          transform 0.18s ease,
+          background 0.18s ease,
+          border-color 0.18s ease;
+      }
+
+      .social-btn:hover,
+      .social-btn:focus-visible {
+        transform: translateY(-2px);
+        background: rgba(219, 22, 34, 0.12);
+        border-color: rgba(219, 22, 34, 0.34);
+        outline: none;
+      }
+
+      .social-btn svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+        flex: 0 0 auto;
+      }
+
+      .credit {
+        margin: 4px 0 0;
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .credit .handwritten {
+        color: rgba(255, 248, 241, 0.78);
+        font-family: "Caveat", cursive;
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      @media (max-width: 380px) {
+        .top-row {
+          flex-direction: column;
+        }
+
+        .lang-pill {
+          align-self: flex-start;
+        }
+
+        .social-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 620px) {
+        .lang-pill {
+          display: none;
+        }
+
+        .message-note {
+          display: none;
+        }
+      }
+
+      @media (min-width: 840px) {
+        .lang-strip {
+          width: min(920px, 100%);
+          justify-content: center;
+        }
+
+        .top-row {
+          flex-wrap: nowrap;
+        }
+
+        .card-inner {
+          padding: 24px;
+          gap: 22px;
+        }
+
+        .body-grid {
+          grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
+          grid-template-areas: "visual message";
+          align-items: stretch;
+        }
+
+        .message-panel {
+          padding: 24px;
+        }
+
+        .visual-frame {
+          aspect-ratio: auto;
+        }
+
+        .visual-frame img {
+          height: auto;
+          object-fit: contain;
+        }
+
+        .bottom-row {
+          grid-template-columns: auto 1fr;
+          align-items: center;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition-duration: 0.01ms !important;
+          transition-delay: 0ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="lang-strip" role="tablist" aria-label="Language selector">
+        <button
+          class="lang-btn is-active"
+          type="button"
+          data-lang="en"
+          aria-label="English"
+          aria-pressed="true"
+          title="English"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/gb.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="el"
+          aria-label="Ελληνικά"
+          aria-pressed="false"
+          title="Ελληνικά"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/gr.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="zh"
+          aria-label="简体中文"
+          aria-pressed="false"
+          title="简体中文"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/cn.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="ko"
+          aria-label="한국어"
+          aria-pressed="false"
+          title="한국어"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/kr.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="ar"
+          aria-label="العربية"
+          aria-pressed="false"
+          title="العربية"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/sa.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="es"
+          aria-label="Español"
+          aria-pressed="false"
+          title="Español"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/es.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="fr"
+          aria-label="Français"
+          aria-pressed="false"
+          title="Français"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/fr.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="it"
+          aria-label="Italiano"
+          aria-pressed="false"
+          title="Italiano"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/it.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+        <button
+          class="lang-btn"
+          type="button"
+          data-lang="de"
+          aria-label="Deutsch"
+          aria-pressed="false"
+          title="Deutsch"
+        >
+          <img
+            class="flag-icon"
+            src="https://flagcdn.com/w40/de.png"
+            alt=""
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+
+      <div class="shell">
+        <section class="card" aria-labelledby="brand-title">
+          <div class="ribbon" aria-hidden="true"></div>
+          <div class="card-inner">
+            <div class="top-row">
+              <div class="brand">
+                <div class="logo-badge">
+                  <img src="logo.jpg" alt="Apostoli Agapis logo" />
+                </div>
+                <div class="brand-copy">
+                  <p class="eyebrow" id="brand-eyebrow">Mission of Love</p>
+                  <h1 class="brand-title" id="brand-title">
+                    <span id="brand-line-1">Mission</span>
+                    <span class="accent-word" id="brand-line-2">of Love</span>
+                  </h1>
+                  <p class="brand-subtitle" id="brand-subtitle">
+                    Volunteer solidarity, warm welcome, and people-first care in
+                    Heraklion, Crete.
+                  </p>
+                </div>
+              </div>
+
+              <div class="lang-pill" aria-live="polite">
+                <img
+                  class="flag-icon flag-icon-lg lang-pill-flag"
+                  id="current-flag"
+                  src="https://flagcdn.com/w40/gb.png"
+                  alt=""
+                  aria-hidden="true"
+                />
+                <span class="lang-pill-copy">
+                  <small id="current-language-label">Active</small>
+                  <strong id="current-language">English</strong>
+                </span>
+              </div>
+            </div>
+
+            <div class="body-grid">
+              <div class="visual-panel">
+                <div class="visual-frame">
+                  <img
+                    src="logo2.png"
+                    alt="Apostoli Agapis volunteer solidarity artwork"
+                  />
+                </div>
+              </div>
+
+              <article
+                class="message-panel"
+                id="message-panel"
+                lang="en"
+                aria-live="polite"
+              >
+                <div class="message-meta">
+                  <div class="message-chip">
+                    <span>
+                      <img
+                        class="flag-icon"
+                        id="message-flag"
+                        src="https://flagcdn.com/w40/gb.png"
+                        alt=""
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <strong id="message-language">English</strong>
+                  </div>
+                  <div class="message-note" id="message-note">
+                    Tap a flag above
+                  </div>
+                </div>
+
+                <p class="greeting" id="message-greeting">Welcome!</p>
+                <p class="message-line" id="message-line-1">
+                  The Mission of Love, the Volunteer Solidarity Group of Crete,
+                  warmly welcomes you.
+                </p>
+                <p class="message-line" id="message-line-2">
+                  We are excited to share this journey with you and explore new
+                  technologies and their applications together.
+                </p>
+                <p class="message-line is-final" id="message-line-3">
+                  Enjoy your stay in Heraklion, Crete!
+                </p>
+              </article>
+            </div>
+
+            <div class="bottom-row">
+              <div class="location-pill" id="location-label">Heraklion, Crete</div>
+
+              <div class="social-grid" aria-label="Social links">
+                <a
+                  class="social-btn"
+                  href="https://www.facebook.com/apostoli.agapis2020/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M13.58 21v-8.2h2.78l.42-3.2h-3.2V7.56c0-.93.27-1.56 1.6-1.56H17V3.14c-.3-.05-1.31-.14-2.5-.14-2.47 0-4.16 1.5-4.16 4.28V9.6H7.54v3.2h2.8V21h3.24Z"
+                    />
+                  </svg>
+                  <span id="social-page-label">Page</span>
+                </a>
+                <a
+                  class="social-btn"
+                  href="https://www.facebook.com/groups/2691769244435090/?locale=el_GR"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M8.2 11.6a3.6 3.6 0 1 0 0-7.2 3.6 3.6 0 0 0 0 7.2Zm7.6-.8a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4ZM3.4 18.9c0-2.68 2.95-4.1 4.8-4.1s4.8 1.42 4.8 4.1V21H3.4v-2.1Zm11.2 2.1v-1.7c0-1.2-.45-2.28-1.28-3.14 1.54.18 4.48 1.22 4.48 4.1V21h-3.2Z"
+                    />
+                  </svg>
+                  <span id="social-group-label">Group</span>
+                </a>
+                <a
+                  class="social-btn"
+                  href="https://www.instagram.com/apostoli_agapis/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M7.25 3h9.5A4.25 4.25 0 0 1 21 7.25v9.5A4.25 4.25 0 0 1 16.75 21h-9.5A4.25 4.25 0 0 1 3 16.75v-9.5A4.25 4.25 0 0 1 7.25 3Zm0 1.7A2.55 2.55 0 0 0 4.7 7.25v9.5A2.55 2.55 0 0 0 7.25 19.3h9.5a2.55 2.55 0 0 0 2.55-2.55v-9.5A2.55 2.55 0 0 0 16.75 4.7h-9.5Zm9.9 1.35a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2ZM12 7.3A4.7 4.7 0 1 1 7.3 12 4.7 4.7 0 0 1 12 7.3Zm0 1.7A3 3 0 1 0 15 12a3 3 0 0 0-3-3Z"
+                    />
+                  </svg>
+                  <span id="social-instagram-label">Instagram</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <p class="credit">
+          <span id="credit-prefix">made with heart for</span>
+          <span class="handwritten">Apostoli Agapis</span>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      function flagUrl(code) {
+        return `https://flagcdn.com/w40/${code}.png`;
+      }
+
+      const translations = {
+        en: {
+          flagCode: "gb",
+          label: "English",
+          htmlLang: "en",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Welcome",
+          activeLabel: "Active",
+          uiNote: "Tap a flag above",
+          brandEyebrow: "Mission of Love",
+          brandLine1: "Mission",
+          brandLine2: "of Love",
+          brandSubtitle:
+            "Volunteer solidarity, warm welcome, and people-first care in Heraklion, Crete.",
+          greeting: "Welcome!",
+          line1:
+            "The Mission of Love, the Volunteer Solidarity Group of Crete, warmly welcomes you.",
+          line2:
+            "We are excited to share this journey with you and explore new technologies and their applications together.",
+          line3: "Enjoy your stay in Heraklion, Crete!",
+          location: "Heraklion, Crete",
+          socialPage: "Page",
+          socialGroup: "Group",
+          socialInstagram: "Instagram",
+          creditPrefix: "made with heart for",
+        },
+        el: {
+          flagCode: "gr",
+          label: "Ελληνικά",
+          htmlLang: "el",
+          dir: "ltr",
+          script: "greek",
+          title: "Αποστολή Αγάπης | Καλώς ήρθατε",
+          activeLabel: "Γλώσσα",
+          uiNote: "Πατήστε μια σημαία πιο πάνω",
+          brandEyebrow: "Αποστολή Αγάπης",
+          brandLine1: "Αποστολή",
+          brandLine2: "Αγάπης",
+          brandSubtitle:
+            "Εθελοντική αλληλεγγύη, ζεστό καλωσόρισμα και φροντίδα με επίκεντρο τον άνθρωπο στο Ηράκλειο Κρήτης.",
+          greeting: "Καλώς ήρθατε!",
+          line1:
+            "Η Αποστολή Αγάπης, η Εθελοντική Ομάδα Αλληλεγγύης της Κρήτης, σας καλωσορίζει θερμά.",
+          line2:
+            "Χαιρόμαστε που μοιραζόμαστε αυτό το ταξίδι μαζί σας και που εξερευνούμε μαζί νέες τεχνολογίες και τις εφαρμογές τους.",
+          line3: "Απολαύστε τη διαμονή σας στο Ηράκλειο Κρήτης!",
+          location: "Ηράκλειο, Κρήτη",
+          socialPage: "Σελίδα",
+          socialGroup: "Ομάδα",
+          socialInstagram: "Instagram",
+          creditPrefix: "φτιαγμένο με καρδιά για την",
+        },
+        zh: {
+          flagCode: "cn",
+          label: "简体中文",
+          htmlLang: "zh-Hans",
+          dir: "ltr",
+          script: "chinese",
+          title: "Apostoli Agapis | 欢迎您",
+          activeLabel: "当前",
+          uiNote: "点击上方旗帜",
+          brandEyebrow: "爱心使命",
+          brandLine1: "爱心",
+          brandLine2: "使命",
+          brandSubtitle: "来自伊拉克利翁、克里特岛的志愿互助、温暖欢迎与以人为本的关怀。",
+          greeting: "欢迎您！",
+          line1: "克里特岛“爱心使命”志愿互助团队热烈欢迎您的到来。",
+          line2: "我们期待与您一起探索新技术及其应用。",
+          line3: "祝您在克里特岛伊拉克利翁度过愉快的时光！",
+          location: "伊拉克利翁，克里特岛",
+          socialPage: "主页",
+          socialGroup: "群组",
+          socialInstagram: "Instagram",
+          creditPrefix: "用心为以下对象制作",
+        },
+        ko: {
+          flagCode: "kr",
+          label: "한국어",
+          htmlLang: "ko",
+          dir: "ltr",
+          script: "korean",
+          title: "Apostoli Agapis | 환영합니다",
+          activeLabel: "현재",
+          uiNote: "위의 국기를 눌러보세요",
+          brandEyebrow: "사랑의 사명",
+          brandLine1: "사랑의",
+          brandLine2: "사명",
+          brandSubtitle:
+            "헤라클리온, 크레타에서 이어지는 자원 연대와 따뜻한 환대, 사람 중심의 돌봄.",
+          greeting: "환영합니다!",
+          line1:
+            "크레타 사랑의 사명 자원봉사 연대 단체는 여러분을 진심으로 환영합니다.",
+          line2: "새로운 기술과 그 활용을 함께 나누기를 기대합니다.",
+          line3: "헤라클리온, 크레타에서 즐거운 시간 보내시길 바랍니다!",
+          location: "헤라클리온, 크레타",
+          socialPage: "페이지",
+          socialGroup: "그룹",
+          socialInstagram: "인스타그램",
+          creditPrefix: "마음을 담아 만든 페이지",
+        },
+        ar: {
+          flagCode: "sa",
+          label: "العربية",
+          htmlLang: "ar",
+          dir: "rtl",
+          script: "arabic",
+          title: "Apostoli Agapis | أهلاً وسهلاً بكم",
+          activeLabel: "النشطة",
+          uiNote: "اضغط على العلم في الأعلى",
+          brandEyebrow: "بعثة المحبة",
+          brandLine1: "بعثة",
+          brandLine2: "المحبة",
+          brandSubtitle:
+            "تضامن تطوعي، ترحيب دافئ، ورعاية تضع الإنسان أولاً في هيراكليون، كريت.",
+          greeting: "أهلاً وسهلاً بكم!",
+          line1: "ترحب بكم بعثة المحبة، وهي مجموعة تطوعية للتضامن في كريت.",
+          line2: "يسعدنا أن نشارككم شغفنا بالتقنيات الجديدة وتطبيقاتها.",
+          line3: "نتمنى لكم إقامة ممتعة في هيراكليون، كريت!",
+          location: "هيراكليون، كريت",
+          socialPage: "الصفحة",
+          socialGroup: "المجموعة",
+          socialInstagram: "إنستغرام",
+          creditPrefix: "صُنعت بمحبة من أجل",
+        },
+        es: {
+          flagCode: "es",
+          label: "Español",
+          htmlLang: "es",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | ¡Bienvenidos!",
+          activeLabel: "Activa",
+          uiNote: "Pulsa una bandera arriba",
+          brandEyebrow: "Misión del Amor",
+          brandLine1: "Misión del",
+          brandLine2: "Amor",
+          brandSubtitle:
+            "Solidaridad voluntaria, cálida bienvenida y cuidado centrado en las personas en Heraclión, Creta.",
+          greeting: "¡Bienvenidos!",
+          line1:
+            "La Misión del Amor, el Grupo de Voluntariado de Solidaridad de Creta, les da una cálida bienvenida.",
+          line2:
+            "Estamos emocionados de compartir este viaje con ustedes y explorar juntos las nuevas tecnologías y sus aplicaciones.",
+          line3: "¡Disfruten su estancia en Heraclión, Creta!",
+          location: "Heraclión, Creta",
+          socialPage: "Página",
+          socialGroup: "Grupo",
+          socialInstagram: "Instagram",
+          creditPrefix: "hecho con cariño para",
+        },
+        fr: {
+          flagCode: "fr",
+          label: "Français",
+          htmlLang: "fr",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Bienvenue !",
+          activeLabel: "Active",
+          uiNote: "Touchez un drapeau au-dessus",
+          brandEyebrow: "Mission de l'Amour",
+          brandLine1: "Mission de",
+          brandLine2: "l'Amour",
+          brandSubtitle:
+            "Solidarité bénévole, accueil chaleureux et attention centrée sur les personnes à Héraklion, Crète.",
+          greeting: "Bienvenue !",
+          line1:
+            "La Mission de l'Amour, le Groupe de Solidarité Bénévole de Crète, vous souhaite la bienvenue chaleureusement.",
+          line2:
+            "Nous sommes impatients de partager ce voyage avec vous et d'explorer ensemble les nouvelles technologies et leurs applications.",
+          line3: "Profitez de votre séjour à Héraklion, Crète !",
+          location: "Héraklion, Crète",
+          socialPage: "Page",
+          socialGroup: "Groupe",
+          socialInstagram: "Instagram",
+          creditPrefix: "créé avec coeur pour",
+        },
+        it: {
+          flagCode: "it",
+          label: "Italiano",
+          htmlLang: "it",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Benvenuti!",
+          activeLabel: "Attiva",
+          uiNote: "Tocca una bandiera sopra",
+          brandEyebrow: "Missione dell'Amore",
+          brandLine1: "Missione dell'",
+          brandLine2: "Amore",
+          brandSubtitle:
+            "Solidarieta volontaria, calorosa accoglienza e cura centrata sulle persone a Heraklion, Creta.",
+          greeting: "Benvenuti!",
+          line1:
+            "La Missione dell'Amore, il Gruppo di Solidarietà Volontaria di Creta, vi dà un caloroso benvenuto.",
+          line2:
+            "Siamo entusiasti di condividere questo percorso con voi ed esplorare insieme le nuove tecnologie e le loro applicazioni.",
+          line3: "Buon soggiorno a Heraklion, Creta!",
+          location: "Heraklion, Creta",
+          socialPage: "Pagina",
+          socialGroup: "Gruppo",
+          socialInstagram: "Instagram",
+          creditPrefix: "creato con il cuore per",
+        },
+        de: {
+          flagCode: "de",
+          label: "Deutsch",
+          htmlLang: "de",
+          dir: "ltr",
+          script: "latin",
+          title: "Apostoli Agapis | Willkommen!",
+          activeLabel: "Aktiv",
+          uiNote: "Tippe oben auf eine Flagge",
+          brandEyebrow: "Mission der Liebe",
+          brandLine1: "Mission der",
+          brandLine2: "Liebe",
+          brandSubtitle:
+            "Freiwillige Solidarität, ein herzlicher Empfang und menschennahe Fürsorge in Heraklion, Kreta.",
+          greeting: "Willkommen!",
+          line1:
+            "Die Mission der Liebe, die Freiwilligengruppe der Solidarität auf Kreta, heißt Sie herzlich willkommen.",
+          line2:
+            "Wir freuen uns, diese Reise mit Ihnen zu teilen und gemeinsam neue Technologien und ihre Anwendungen zu entdecken.",
+          line3: "Genießen Sie Ihren Aufenthalt in Heraklion, Kreta!",
+          location: "Heraklion, Kreta",
+          socialPage: "Seite",
+          socialGroup: "Gruppe",
+          socialInstagram: "Instagram",
+          creditPrefix: "mit Herz gemacht für",
+        },
+      };
+
+      const languageButtons = Array.from(document.querySelectorAll(".lang-btn"));
+      const card = document.querySelector(".card");
+      const messagePanel = document.getElementById("message-panel");
+      const brandEyebrow = document.getElementById("brand-eyebrow");
+      const brandLine1 = document.getElementById("brand-line-1");
+      const brandLine2 = document.getElementById("brand-line-2");
+      const brandSubtitle = document.getElementById("brand-subtitle");
+      const currentLanguageLabel = document.getElementById("current-language-label");
+      const currentLanguage = document.getElementById("current-language");
+      const currentFlag = document.getElementById("current-flag");
+      const messageLanguage = document.getElementById("message-language");
+      const messageFlag = document.getElementById("message-flag");
+      const messageNote = document.getElementById("message-note");
+      const greeting = document.getElementById("message-greeting");
+      const line1 = document.getElementById("message-line-1");
+      const line2 = document.getElementById("message-line-2");
+      const line3 = document.getElementById("message-line-3");
+      const locationLabel = document.getElementById("location-label");
+      const socialPageLabel = document.getElementById("social-page-label");
+      const socialGroupLabel = document.getElementById("social-group-label");
+      const socialInstagramLabel = document.getElementById("social-instagram-label");
+      const creditPrefix = document.getElementById("credit-prefix");
+
+      let swapTimer = null;
+
+      function syncUrl(code) {
+        const url = new URL(window.location.href);
+        url.searchParams.set("lang", code);
+        window.history.replaceState({}, "", url);
+      }
+
+      function applyLanguage(code, animated = true, updateUrl = true) {
+        const translation = translations[code] || translations.en;
+
+        const commit = () => {
+          document.documentElement.lang = translation.htmlLang;
+          document.title = translation.title;
+
+          brandEyebrow.textContent = translation.brandEyebrow;
+          brandLine1.textContent = translation.brandLine1;
+          brandLine2.textContent = translation.brandLine2;
+          brandSubtitle.textContent = translation.brandSubtitle;
+          currentLanguageLabel.textContent = translation.activeLabel;
+          currentLanguage.textContent = translation.label;
+          currentFlag.src = flagUrl(translation.flagCode);
+          messageLanguage.textContent = translation.label;
+          messageFlag.src = flagUrl(translation.flagCode);
+          messageNote.textContent = translation.uiNote;
+          greeting.textContent = translation.greeting;
+          line1.textContent = translation.line1;
+          line2.textContent = translation.line2;
+          line3.textContent = translation.line3;
+          locationLabel.textContent = translation.location;
+          socialPageLabel.textContent = translation.socialPage;
+          socialGroupLabel.textContent = translation.socialGroup;
+          socialInstagramLabel.textContent = translation.socialInstagram;
+          creditPrefix.textContent = translation.creditPrefix;
+
+          messagePanel.lang = translation.htmlLang;
+          messagePanel.classList.toggle("rtl", translation.dir === "rtl");
+          messagePanel.dataset.script = translation.script;
+          card.classList.toggle("is-rtl", translation.dir === "rtl");
+
+          languageButtons.forEach((button) => {
+            const isActive = button.dataset.lang === code;
+            button.classList.toggle("is-active", isActive);
+            button.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+
+          if (updateUrl) {
+            syncUrl(code);
+          }
+        };
+
+        window.clearTimeout(swapTimer);
+
+        if (!animated) {
+          commit();
+          return;
+        }
+
+        messagePanel.classList.add("is-swapping");
+        swapTimer = window.setTimeout(() => {
+          commit();
+          requestAnimationFrame(() => {
+            messagePanel.classList.remove("is-swapping");
+          });
+        }, 120);
+      }
+
+      languageButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          applyLanguage(button.dataset.lang, true, true);
+        });
+      });
+
+      const initialLanguage =
+        new URL(window.location.href).searchParams.get("lang") ||
+        window.location.hash.replace("#", "") ||
+        "en";
+
+      applyLanguage(
+        Object.prototype.hasOwnProperty.call(translations, initialLanguage)
+          ? initialLanguage
+          : "en",
+        false,
+        false
+      );
+    </script>
+  </body>
+</html>
