@@ -245,6 +245,47 @@
         font-size: 13px;
       }
 
+      .donation-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .donation-card {
+        padding: 16px;
+        border-radius: var(--radius-lg);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: var(--surface-soft);
+      }
+
+      .donation-label {
+        display: inline-block;
+        color: rgba(255, 248, 241, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .donation-value {
+        display: block;
+        margin-top: 8px;
+        color: var(--text);
+        font-family: "League Spartan", "Noto Sans", sans-serif;
+        font-size: clamp(1.2rem, 4vw, 1.55rem);
+        line-height: 1.08;
+        letter-spacing: 0.03em;
+        word-break: break-word;
+      }
+
+      .donation-meta {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
       .section-card[data-script="arabic"] {
         font-family: "Noto Sans Arabic", "Noto Sans", sans-serif;
       }
@@ -263,6 +304,10 @@
         }
 
         .help-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .donation-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
@@ -337,6 +382,32 @@
           </div>
         </section>
 
+        <section class="panel section-card" id="donation-card">
+          <p class="eyebrow" id="donation-eyebrow">Donations</p>
+          <h2 class="section-title" id="donation-title">Support through IRIS or bank transfer</h2>
+          <p class="section-copy" id="donation-copy">
+            If you would like to offer a financial donation, you can use the IRIS number below or the official bank account of Apostoli Agapis.
+          </p>
+          <div class="donation-grid">
+            <article class="donation-card">
+              <span class="donation-label">IRIS</span>
+              <strong class="donation-value" dir="ltr">698 334 8873</strong>
+              <span class="donation-meta" id="donation-iris-meta"
+                >Use the IRIS mobile payment with this number.</span
+              >
+            </article>
+            <article class="donation-card">
+              <span class="donation-label">IBAN</span>
+              <strong class="donation-value" dir="ltr"
+                >GR82 0172 7610 0057 6110 6741 840</strong
+              >
+              <span class="donation-meta" id="donation-bank-meta"
+                >Beneficiary: Apostoli Agapis</span
+              >
+            </article>
+          </div>
+        </section>
+
         <section class="panel section-card" id="recognition-card">
           <p class="eyebrow" id="recognition-eyebrow">Recognition</p>
           <h2 class="section-title" id="recognition-title">Visibility for supporters</h2>
@@ -399,6 +470,13 @@
               copy: "Businesses, schools and local organizations can become partners in practical solidarity.",
             },
           ],
+          donationEyebrow: "Donations",
+          donationTitle: "Support through IRIS or bank transfer",
+          donationCopy:
+            "If you would like to offer a financial donation, you can use the IRIS number below or the official bank account of Apostoli Agapis.",
+          donationIrisMeta:
+            "Use the IRIS mobile payment with this number.",
+          donationBankMeta: "Beneficiary: Apostoli Agapis",
           recognitionEyebrow: "Recognition",
           recognitionTitle: "Visibility for supporters",
           recognitionCopy1:
@@ -449,6 +527,13 @@
               copy: "Επιχειρήσεις, σχολεία και τοπικοί φορείς μπορούν να γίνουν συνεργάτες στην έμπρακτη αλληλεγγύη.",
             },
           ],
+          donationEyebrow: "Δωρεές",
+          donationTitle: "Στήριξη μέσω IRIS ή τραπεζικής κατάθεσης",
+          donationCopy:
+            "Αν θέλετε να προσφέρετε οικονομική δωρεά, μπορείτε να χρησιμοποιήσετε το IRIS στο παρακάτω κινητό ή τον επίσημο τραπεζικό λογαριασμό της Αποστολής Αγάπης.",
+          donationIrisMeta:
+            "Χρησιμοποίησε μεταφορά IRIS με αυτόν τον αριθμό.",
+          donationBankMeta: "Δικαιούχος: Αποστολή Αγάπης",
           recognitionEyebrow: "Αναγνώριση",
           recognitionTitle: "Προβολή για όσους στηρίζουν",
           recognitionCopy1:
@@ -499,6 +584,13 @@
               copy: "企业、学校和地方机构都可以成为这份实际团结行动的合作伙伴。",
             },
           ],
+          donationEyebrow: "捐赠",
+          donationTitle: "通过 IRIS 或银行转账提供支持",
+          donationCopy:
+            "如果你想提供一笔经济捐赠，可以使用下面的 IRIS 号码，或使用 Apostoli Agapis 的官方银行账户。",
+          donationIrisMeta:
+            "可使用此号码进行 IRIS 手机转账。",
+          donationBankMeta: "收款方：Apostoli Agapis",
           recognitionEyebrow: "致谢与展示",
           recognitionTitle: "对支持者的公开呈现",
           recognitionCopy1:
@@ -549,6 +641,13 @@
               copy: "기업, 학교, 지역 기관은 실제적인 연대의 협력자가 될 수 있습니다.",
             },
           ],
+          donationEyebrow: "후원",
+          donationTitle: "IRIS 또는 은행 송금을 통한 지원",
+          donationCopy:
+            "경제적 후원을 원하신다면 아래 IRIS 번호나 Apostoli Agapis의 공식 은행 계좌를 이용하실 수 있습니다.",
+          donationIrisMeta:
+            "이 번호로 IRIS 모바일 송금을 이용하세요.",
+          donationBankMeta: "예금주: Apostoli Agapis",
           recognitionEyebrow: "감사와 소개",
           recognitionTitle: "후원자에 대한 가시성",
           recognitionCopy1:
@@ -599,6 +698,13 @@
               copy: "يمكن للشركات والمدارس والجهات المحلية أن تصبح شركاء في التضامن العملي.",
             },
           ],
+          donationEyebrow: "التبرعات",
+          donationTitle: "الدعم عبر IRIS أو التحويل البنكي",
+          donationCopy:
+            "إذا كنت ترغب في تقديم تبرع مالي، يمكنك استخدام رقم IRIS أدناه أو الحساب البنكي الرسمي الخاص بـ Apostoli Agapis.",
+          donationIrisMeta:
+            "استخدم خدمة IRIS للدفع عبر الهاتف باستخدام هذا الرقم.",
+          donationBankMeta: "اسم المستفيد: Apostoli Agapis",
           recognitionEyebrow: "التقدير",
           recognitionTitle: "إبراز الداعمين",
           recognitionCopy1:
@@ -649,6 +755,13 @@
               copy: "Empresas, escuelas y organizaciones locales pueden convertirse en aliadas de una solidaridad práctica.",
             },
           ],
+          donationEyebrow: "Donaciones",
+          donationTitle: "Apoyo mediante IRIS o transferencia bancaria",
+          donationCopy:
+            "Si deseas ofrecer una donación económica, puedes utilizar el número IRIS que aparece abajo o la cuenta bancaria oficial de Apostoli Agapis.",
+          donationIrisMeta:
+            "Usa el pago móvil IRIS con este número.",
+          donationBankMeta: "Beneficiario: Apostoli Agapis",
           recognitionEyebrow: "Reconocimiento",
           recognitionTitle: "Visibilidad para quienes apoyan",
           recognitionCopy1:
@@ -699,6 +812,13 @@
               copy: "Les entreprises, écoles et structures locales peuvent devenir partenaires d'une solidarité concrète.",
             },
           ],
+          donationEyebrow: "Dons",
+          donationTitle: "Soutien via IRIS ou virement bancaire",
+          donationCopy:
+            "Si vous souhaitez faire un don financier, vous pouvez utiliser le numéro IRIS ci-dessous ou le compte bancaire officiel d'Apostoli Agapis.",
+          donationIrisMeta:
+            "Utilisez le paiement mobile IRIS avec ce numéro.",
+          donationBankMeta: "Bénéficiaire : Apostoli Agapis",
           recognitionEyebrow: "Reconnaissance",
           recognitionTitle: "Visibilité des soutiens",
           recognitionCopy1:
@@ -749,6 +869,13 @@
               copy: "Imprese, scuole e organizzazioni locali possono diventare partner di una solidarietà concreta.",
             },
           ],
+          donationEyebrow: "Donazioni",
+          donationTitle: "Sostegno tramite IRIS o bonifico bancario",
+          donationCopy:
+            "Se desideri offrire una donazione economica, puoi utilizzare il numero IRIS qui sotto oppure il conto bancario ufficiale di Apostoli Agapis.",
+          donationIrisMeta:
+            "Usa il pagamento mobile IRIS con questo numero.",
+          donationBankMeta: "Beneficiario: Apostoli Agapis",
           recognitionEyebrow: "Riconoscimento",
           recognitionTitle: "Visibilità per chi sostiene",
           recognitionCopy1:
@@ -799,6 +926,13 @@
               copy: "Unternehmen, Schulen und lokale Organisationen können Partner gelebter Solidarität werden.",
             },
           ],
+          donationEyebrow: "Spenden",
+          donationTitle: "Unterstützung per IRIS oder Banküberweisung",
+          donationCopy:
+            "Wenn du eine finanzielle Spende leisten möchtest, kannst du die untenstehende IRIS-Nummer oder das offizielle Bankkonto von Apostoli Agapis nutzen.",
+          donationIrisMeta:
+            "Nutze die mobile IRIS-Zahlung mit dieser Nummer.",
+          donationBankMeta: "Begünstigter: Apostoli Agapis",
           recognitionEyebrow: "Anerkennung",
           recognitionTitle: "Sichtbarkeit für Unterstützende",
           recognitionCopy1:
@@ -831,6 +965,12 @@
       const letterCopy3 = document.getElementById("letter-copy-3");
       const helpEyebrow = document.getElementById("help-eyebrow");
       const helpTitle = document.getElementById("help-title");
+      const donationCard = document.getElementById("donation-card");
+      const donationEyebrow = document.getElementById("donation-eyebrow");
+      const donationTitle = document.getElementById("donation-title");
+      const donationCopy = document.getElementById("donation-copy");
+      const donationIrisMeta = document.getElementById("donation-iris-meta");
+      const donationBankMeta = document.getElementById("donation-bank-meta");
       const helpItemTitleElements = Array.from({ length: 4 }, (_, index) =>
         document.getElementById(`help-item-title-${index + 1}`)
       );
@@ -853,6 +993,7 @@
 
       function applyLanguage(code, updateUrl = true) {
         const translation = translations[code] || translations.en;
+        const fallback = translations.en;
 
         document.documentElement.lang = translation.htmlLang;
         document.documentElement.dir = translation.dir;
@@ -871,6 +1012,16 @@
         letterCopy3.textContent = translation.letterCopy3;
         helpEyebrow.textContent = translation.helpEyebrow;
         helpTitle.textContent = translation.helpTitle;
+        donationEyebrow.textContent =
+          translation.donationEyebrow || fallback.donationEyebrow;
+        donationTitle.textContent =
+          translation.donationTitle || fallback.donationTitle;
+        donationCopy.textContent =
+          translation.donationCopy || fallback.donationCopy;
+        donationIrisMeta.textContent =
+          translation.donationIrisMeta || fallback.donationIrisMeta;
+        donationBankMeta.textContent =
+          translation.donationBankMeta || fallback.donationBankMeta;
         translation.helpItems.forEach((item, index) => {
           helpItemTitleElements[index].textContent = item.title;
           helpItemCopyElements[index].textContent = item.copy;
@@ -883,7 +1034,7 @@
         closingTitle.textContent = translation.closingTitle;
         closingCopy.textContent = translation.closingCopy;
 
-        [letterCard, helpCard, recognitionCard, closingCard].forEach((card) => {
+        [letterCard, helpCard, donationCard, recognitionCard, closingCard].forEach((card) => {
           card.dataset.script = translation.script;
         });
 

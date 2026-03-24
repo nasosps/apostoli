@@ -742,6 +742,60 @@
         box-shadow: 0 0 0 4px rgba(219, 22, 34, 0.12);
       }
 
+      .donation-panel {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+      }
+
+      .donation-intro {
+        margin: 0;
+        color: rgba(255, 248, 241, 0.88);
+        font-size: 13px;
+        line-height: 1.65;
+      }
+
+      .donation-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .donation-card {
+        padding: 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.045);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      }
+
+      .donation-label {
+        display: inline-block;
+        color: rgba(255, 248, 241, 0.6);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .donation-value {
+        display: block;
+        margin-top: 8px;
+        color: var(--text);
+        font-family: "League Spartan", "Noto Sans", sans-serif;
+        font-size: clamp(1.2rem, 4vw, 1.55rem);
+        line-height: 1.08;
+        letter-spacing: 0.03em;
+        word-break: break-word;
+      }
+
+      .donation-meta {
+        display: block;
+        margin-top: 8px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.55;
+      }
+
       .docs-grid {
         display: grid;
         gap: 10px;
@@ -792,6 +846,10 @@
       .page.is-rtl .support-list li::before {
         right: 0;
         left: auto;
+      }
+
+      .page.is-rtl .donation-card {
+        text-align: right;
       }
 
       .credit {
@@ -947,6 +1005,10 @@
           grid-template-columns: minmax(320px, 390px) minmax(0, 1fr);
           grid-template-areas: "visual message";
           align-items: stretch;
+        }
+
+        .donation-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .message-panel {
@@ -1364,6 +1426,29 @@
                 Partnerships with schools, institutions and local supporters
               </li>
             </ul>
+            <div class="donation-panel">
+              <p class="donation-intro" id="donation-intro">
+                You can also support Apostoli Agapis through IRIS or by direct bank transfer.
+              </p>
+              <div class="donation-grid">
+                <div class="donation-card">
+                  <span class="donation-label">IRIS</span>
+                  <strong class="donation-value" dir="ltr">698 334 8873</strong>
+                  <span class="donation-meta" id="donation-iris-meta"
+                    >Use the IRIS mobile payment with this number.</span
+                  >
+                </div>
+                <div class="donation-card">
+                  <span class="donation-label">IBAN</span>
+                  <strong class="donation-value" dir="ltr"
+                    >GR82 0172 7610 0057 6110 6741 840</strong
+                  >
+                  <span class="donation-meta" id="donation-bank-meta"
+                    >Beneficiary: Apostoli Agapis</span
+                  >
+                </div>
+              </div>
+            </div>
             <p class="section-copy" id="support-foot">
               Small or large, every contribution helps us stay close to those who
               need it most.
@@ -1481,6 +1566,11 @@
           ],
           supportFoot:
             "Small or large, every contribution helps us stay close to those who need it most.",
+          donationIntro:
+            "You can also support Apostoli Agapis through IRIS or by direct bank transfer.",
+          donationIrisMeta:
+            "Use the IRIS mobile payment with this number.",
+          donationBankMeta: "Beneficiary: Apostoli Agapis",
           docsEyebrow: "Documents",
           docsTitle: "Explore in more depth",
           docsCopy:
@@ -1578,6 +1668,11 @@
           ],
           supportFoot:
             "Μικρή ή μεγάλη, κάθε ενίσχυση μας βοηθά να στεκόμαστε δίπλα σε όσους μας χρειάζονται περισσότερο.",
+          donationIntro:
+            "Μπορείς επίσης να στηρίξεις την Αποστολή Αγάπης μέσω IRIS ή με άμεση τραπεζική κατάθεση.",
+          donationIrisMeta:
+            "Χρησιμοποίησε μεταφορά IRIS με αυτόν τον αριθμό.",
+          donationBankMeta: "Δικαιούχος: Αποστολή Αγάπης",
           docsEyebrow: "Έγγραφα",
           docsTitle: "Δες πιο αναλυτικά το έργο",
           docsCopy:
@@ -1675,6 +1770,11 @@
           ],
           supportFoot:
             "无论大小，每一份贡献都帮助我们继续陪伴最需要帮助的人。",
+          donationIntro:
+            "你也可以通过 IRIS 或直接银行转账支持 Apostoli Agapis。",
+          donationIrisMeta:
+            "可使用此号码进行 IRIS 手机转账。",
+          donationBankMeta: "收款方：Apostoli Agapis",
           docsEyebrow: "文件",
           docsTitle: "查看更完整的内容",
           docsCopy: "打开站内的扩展内容，而不是单独的文档文件。",
@@ -1771,6 +1871,11 @@
           ],
           supportFoot:
             "작든 크든 모든 기여는 가장 도움이 필요한 이웃 곁에 머물 수 있게 해 줍니다.",
+          donationIntro:
+            "IRIS 또는 직접 은행 송금을 통해 Apostoli Agapis를 후원하실 수도 있습니다.",
+          donationIrisMeta:
+            "이 번호로 IRIS 모바일 송금을 이용하세요.",
+          donationBankMeta: "예금주: Apostoli Agapis",
           docsEyebrow: "자료",
           docsTitle: "더 자세히 보기",
           docsCopy: "별도의 문서 파일 대신 사이트 안의 확장된 내용을 열어보세요.",
@@ -1866,6 +1971,11 @@
           ],
           supportFoot:
             "سواء كانت المساهمة صغيرة أم كبيرة، فهي تساعدنا على البقاء قريبين ممن يحتاجون إلينا أكثر.",
+          donationIntro:
+            "يمكنك أيضاً دعم Apostoli Agapis عبر IRIS أو من خلال تحويل مصرفي مباشر.",
+          donationIrisMeta:
+            "استخدم خدمة IRIS للدفع عبر الهاتف باستخدام هذا الرقم.",
+          donationBankMeta: "اسم المستفيد: Apostoli Agapis",
           docsEyebrow: "المستندات",
           docsTitle: "اطلع على محتوى أوسع",
           docsCopy: "افتح المحتوى الموسع داخل الموقع بدلاً من ملفات منفصلة.",
@@ -1962,6 +2072,11 @@
           ],
           supportFoot:
             "Grande o pequeña, cada contribución nos ayuda a permanecer cerca de quienes más lo necesitan.",
+          donationIntro:
+            "También puedes apoyar a Apostoli Agapis mediante IRIS o con una transferencia bancaria directa.",
+          donationIrisMeta:
+            "Usa el pago móvil IRIS con este número.",
+          donationBankMeta: "Beneficiario: Apostoli Agapis",
           docsEyebrow: "Más contenido",
           docsTitle: "Lee la historia completa",
           docsCopy:
@@ -2059,6 +2174,11 @@
           ],
           supportFoot:
             "Petite ou grande, chaque contribution nous aide à rester proches de celles et ceux qui en ont le plus besoin.",
+          donationIntro:
+            "Vous pouvez également soutenir Apostoli Agapis via IRIS ou par virement bancaire direct.",
+          donationIrisMeta:
+            "Utilisez le paiement mobile IRIS avec ce numéro.",
+          donationBankMeta: "Bénéficiaire : Apostoli Agapis",
           docsEyebrow: "Contenu enrichi",
           docsTitle: "Lire l'histoire complète",
           docsCopy:
@@ -2156,6 +2276,11 @@
           ],
           supportFoot:
             "Piccolo o grande, ogni contributo ci aiuta a restare vicini a chi ha più bisogno.",
+          donationIntro:
+            "Puoi anche sostenere Apostoli Agapis tramite IRIS o con un bonifico bancario diretto.",
+          donationIrisMeta:
+            "Usa il pagamento mobile IRIS con questo numero.",
+          donationBankMeta: "Beneficiario: Apostoli Agapis",
           docsEyebrow: "Contenuto extra",
           docsTitle: "Leggi la storia completa",
           docsCopy:
@@ -2253,6 +2378,11 @@
           ],
           supportFoot:
             "Ob klein oder groß, jeder Beitrag hilft uns, nahe bei den Menschen zu bleiben, die uns am meisten brauchen.",
+          donationIntro:
+            "Du kannst Apostoli Agapis auch über IRIS oder per direkter Banküberweisung unterstützen.",
+          donationIrisMeta:
+            "Nutze die mobile IRIS-Zahlung mit dieser Nummer.",
+          donationBankMeta: "Begünstigter: Apostoli Agapis",
           docsEyebrow: "Mehr Inhalt",
           docsTitle: "Die ganze Geschichte lesen",
           docsCopy:
@@ -2328,6 +2458,9 @@
         document.getElementById(`support-item-${index + 1}`)
       );
       const supportFoot = document.getElementById("support-foot");
+      const donationIntro = document.getElementById("donation-intro");
+      const donationIrisMeta = document.getElementById("donation-iris-meta");
+      const donationBankMeta = document.getElementById("donation-bank-meta");
       const docsEyebrow = document.getElementById("docs-eyebrow");
       const docsTitle = document.getElementById("docs-title");
       const docsCopy = document.getElementById("docs-copy");
@@ -2349,6 +2482,7 @@
 
       function applyLanguage(code, animated = true, updateUrl = true) {
         const translation = translations[code] || translations.en;
+        const fallback = translations.en;
 
         const commit = () => {
           document.documentElement.lang = translation.htmlLang;
@@ -2392,6 +2526,12 @@
             supportItemElements[index].textContent = item;
           });
           supportFoot.textContent = translation.supportFoot;
+          donationIntro.textContent =
+            translation.donationIntro || fallback.donationIntro;
+          donationIrisMeta.textContent =
+            translation.donationIrisMeta || fallback.donationIrisMeta;
+          donationBankMeta.textContent =
+            translation.donationBankMeta || fallback.donationBankMeta;
           docsEyebrow.textContent = translation.docsEyebrow;
           docsTitle.textContent = translation.docsTitle;
           docsCopy.textContent = translation.docsCopy;
