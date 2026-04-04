@@ -117,12 +117,11 @@
       }
 
       .page-views {
-        position: fixed;
-        left: 50%;
-        bottom: 6px;
-        z-index: 20;
+        position: relative;
         display: flex;
         justify-content: center;
+        width: max-content;
+        margin: 4px auto calc(10px + env(safe-area-inset-bottom));
         padding: 3px 7px;
         border: 1px solid rgba(255, 255, 255, 0.05);
         border-radius: 999px;
@@ -130,7 +129,6 @@
         backdrop-filter: blur(12px);
         box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
         opacity: 0.46;
-        transform: translateX(-50%);
         transition:
           opacity 0.18s ease,
           transform 0.18s ease;
@@ -144,7 +142,7 @@
 
       .page-views:hover {
         opacity: 0.72;
-        transform: translateX(-50%) translateY(-1px);
+        transform: translateY(-1px);
       }
 
       .lang-strip {
