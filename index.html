@@ -116,6 +116,37 @@
         padding: 16px 12px 28px;
       }
 
+      .page-views {
+        position: fixed;
+        left: 50%;
+        bottom: 6px;
+        z-index: 20;
+        display: flex;
+        justify-content: center;
+        padding: 3px 7px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 999px;
+        background: rgba(8, 8, 8, 0.34);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+        opacity: 0.46;
+        transform: translateX(-50%);
+        transition:
+          opacity 0.18s ease,
+          transform 0.18s ease;
+      }
+
+      .page-views img {
+        display: block;
+        width: auto;
+        height: 16px;
+      }
+
+      .page-views:hover {
+        opacity: 0.72;
+        transform: translateX(-50%) translateY(-1px);
+      }
+
       .lang-strip {
         position: sticky;
         top: 10px;
@@ -1493,7 +1524,22 @@
       </div>
     </main>
 
+    <div class="page-views" aria-hidden="true">
+      <img id="page-hit-counter" alt="" width="1" height="1" />
+    </div>
+
     <script>
+      (function setPageCounter() {
+        const counterImage = document.getElementById("page-hit-counter");
+        if (!counterImage) return;
+
+        const counterId = "nasosps-apostoli-home";
+        counterImage.src =
+          "https://hitscounter.dev/api/hit?url=" +
+          encodeURIComponent(counterId) +
+          "&label=&icon=eye&color=%236b7280&message=&style=flat&tz=UTC";
+      })();
+
       function flagUrl(code) {
         return `https://flagcdn.com/w40/${code}.png`;
       }
