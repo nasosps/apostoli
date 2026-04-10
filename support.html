@@ -204,17 +204,10 @@
         font-size: clamp(2rem, 8vw, 3.8rem);
       }
 
-      .hero-copy,
       .section-copy,
       .help-copy {
         color: var(--muted);
         line-height: 1.7;
-      }
-
-      .hero-copy {
-        margin: 14px 0 0;
-        max-width: 62ch;
-        font-size: 15px;
       }
 
       .hero-media {
@@ -363,9 +356,6 @@
         </div>
         <p class="eyebrow" id="hero-eyebrow">Support text</p>
         <h1 class="hero-title" id="hero-title">Why the mission asks for support</h1>
-        <p class="hero-copy" id="hero-copy">
-          This page turns the support letter into site content, so the message can be read clearly in every language.
-        </p>
         <div class="hero-media">
           <img src="assets/pdf_images/page01_02_X8.jpg" alt="Apostoli Agapis support material" />
           <img src="assets/pdf_images/page01_04_X10.jpg" alt="Hands joined together in solidarity" />
@@ -484,8 +474,6 @@
           backLabel: "Home",
           heroEyebrow: "Support message",
           heroTitle: "Why the mission asks for support",
-          heroCopy:
-            "This page turns the support letter into site content, so its message can be read clearly in every language.",
           letterEyebrow: "Support message",
           letterTitle: "A message to supporters",
           letterCopy1:
@@ -541,8 +529,6 @@
           backLabel: "Αρχική",
           heroEyebrow: "Κείμενο στήριξης",
           heroTitle: "Γιατί η αποστολή ζητά στήριξη",
-          heroCopy:
-            "Η σελίδα αυτή μεταφέρει το κείμενο στήριξης μέσα στο site, ώστε το μήνυμα να διαβάζεται καθαρά σε όλες τις γλώσσες.",
           letterEyebrow: "Κείμενο στήριξης",
           letterTitle: "Ένα μήνυμα προς όσους στηρίζουν",
           letterCopy1:
@@ -598,8 +584,6 @@
           backLabel: "首页",
           heroEyebrow: "支持说明",
           heroTitle: "为什么这项使命需要支持",
-          heroCopy:
-            "本页将支持信转为网站内容，让它的核心信息可以被所有语言的访客清楚阅读。",
           letterEyebrow: "支持说明",
           letterTitle: "写给支持者的一封信",
           letterCopy1:
@@ -655,8 +639,6 @@
           backLabel: "홈",
           heroEyebrow: "후원 안내",
           heroTitle: "왜 이 사명에는 후원이 필요한가",
-          heroCopy:
-            "이 페이지는 후원 서한을 사이트 콘텐츠로 바꾸어, 그 메시지를 모든 언어에서 분명하게 읽을 수 있게 합니다.",
           letterEyebrow: "후원 안내",
           letterTitle: "후원자들에게 전하는 메시지",
           letterCopy1:
@@ -712,8 +694,6 @@
           backLabel: "الرئيسية",
           heroEyebrow: "رسالة الدعم",
           heroTitle: "لماذا تحتاج هذه الرسالة إلى دعم",
-          heroCopy:
-            "تحول هذه الصفحة خطاب الدعم إلى محتوى داخل الموقع حتى يمكن قراءة رسالته بوضوح في جميع اللغات.",
           letterEyebrow: "رسالة الدعم",
           letterTitle: "رسالة إلى الداعمين",
           letterCopy1:
@@ -769,8 +749,6 @@
           backLabel: "Inicio",
           heroEyebrow: "Texto de apoyo",
           heroTitle: "Por qué la misión pide apoyo",
-          heroCopy:
-            "Esta página convierte la carta de apoyo en contenido del sitio para que su mensaje pueda leerse con claridad en todos los idiomas.",
           letterEyebrow: "Texto de apoyo",
           letterTitle: "Un mensaje para quienes apoyan",
           letterCopy1:
@@ -826,8 +804,6 @@
           backLabel: "Accueil",
           heroEyebrow: "Texte de soutien",
           heroTitle: "Pourquoi la mission demande du soutien",
-          heroCopy:
-            "Cette page transforme la lettre de soutien en contenu du site afin que son message puisse être lu clairement dans toutes les langues.",
           letterEyebrow: "Texte de soutien",
           letterTitle: "Un message aux soutiens",
           letterCopy1:
@@ -883,8 +859,6 @@
           backLabel: "Home",
           heroEyebrow: "Testo di sostegno",
           heroTitle: "Perché la missione chiede sostegno",
-          heroCopy:
-            "Questa pagina trasforma la lettera di sostegno in contenuto del sito, così che il suo messaggio possa essere letto chiaramente in tutte le lingue.",
           letterEyebrow: "Testo di sostegno",
           letterTitle: "Un messaggio per chi sostiene",
           letterCopy1:
@@ -940,8 +914,6 @@
           backLabel: "Start",
           heroEyebrow: "Unterstützungstext",
           heroTitle: "Warum die Mission Unterstützung braucht",
-          heroCopy:
-            "Diese Seite macht aus dem Unterstützungsschreiben Website-Inhalt, damit seine Botschaft in allen Sprachen klar lesbar ist.",
           letterEyebrow: "Unterstützungstext",
           letterTitle: "Eine Botschaft an Unterstützende",
           letterCopy1:
@@ -997,7 +969,6 @@
       const heroLanguage = document.getElementById("hero-language");
       const heroEyebrow = document.getElementById("hero-eyebrow");
       const heroTitle = document.getElementById("hero-title");
-      const heroCopy = document.getElementById("hero-copy");
       const letterCard = document.getElementById("letter-card");
       const helpCard = document.getElementById("help-card");
       const recognitionCard = document.getElementById("recognition-card");
@@ -1048,7 +1019,6 @@
         backLink.href = `index.html?lang=${code}`;
         heroEyebrow.textContent = translation.heroEyebrow;
         heroTitle.textContent = translation.heroTitle;
-        heroCopy.textContent = translation.heroCopy;
         letterEyebrow.textContent = translation.letterEyebrow;
         letterTitle.textContent = translation.letterTitle;
         letterCopy1.textContent = translation.letterCopy1;
